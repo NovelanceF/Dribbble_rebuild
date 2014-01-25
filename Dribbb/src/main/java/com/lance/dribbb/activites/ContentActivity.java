@@ -47,11 +47,9 @@ public class ContentActivity extends FragmentActivity implements OnPageChangeLis
             R.drawable.ic_drawer, R.string.drawer_open, R.string.drawer_close) {
 
       public void onDrawerClosed(View view) {
-
       }
 
       public void onDrawerOpened(View drawerView) {
-
       }
     };
 
