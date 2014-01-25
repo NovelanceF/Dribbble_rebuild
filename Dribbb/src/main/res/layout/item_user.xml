@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <com.android.volley.toolbox.NetworkImageView 
+        android:id="@+id/item_user_avatar"
+        android:layout_width="67dp"
+        android:layout_height="67dp"
+        android:background="#dd232323"
+        android:padding="4dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginBottom="7dp"/>
+    
+    <TextView 
+        android:id="@+id/item_user_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:text="Tap to connect"
+        android:textSize="23sp"/>
+    
+    <TextView 
+        android:id="@+id/item_user_info2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="to your Dribbble account"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="48dp"
+        android:textSize="14sp"/>
+
+</LinearLayout>

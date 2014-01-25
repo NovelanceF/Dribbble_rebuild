@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Dribbb/Dribbb.iml" filepath="$PROJECT_DIR$/Dribbb/Dribbb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DribbbProject.iml" filepath="$PROJECT_DIR$/DribbbProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DribbbleProject.iml" filepath="$PROJECT_DIR$/DribbbleProject.iml" />
+    </modules>
+  </component>
+</project>
+

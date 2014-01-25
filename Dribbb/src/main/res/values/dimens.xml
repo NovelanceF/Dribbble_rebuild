@@ -1,0 +1,15 @@
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    
+    <drawable name="actionbar_back">#ef202020</drawable>
+    <drawable name="tab_selected">#ffe16b99</drawable>
+    <drawable name="tab_unselected">#33ffffff</drawable>
+    <drawable name="tab_selected_pressed">#ffe23176</drawable>
+    <drawable name="tab_unselected_pressed">#ffe16b99</drawable>
+    <drawable name="tab_selected_focused">#ff000000</drawable>
+    <drawable name="tab_unselected_focused">#22ffffff</drawable>
+
+</resources>
