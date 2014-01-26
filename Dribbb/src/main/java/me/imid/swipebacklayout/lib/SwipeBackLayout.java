@@ -17,7 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
-import com.lance.dribbb.R;
+import nl.lance.dribbb.R;
 
 public class SwipeBackLayout extends FrameLayout {
     /**

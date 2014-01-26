@@ -13,11 +13,11 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.NetworkImageView;
 import com.android.volley.toolbox.Volley;
-import com.lance.dribbb.R;
 
 import java.util.List;
 import java.util.Map;
 
+import nl.lance.dribbb.R;
 import nl.lance.dribbb.network.BitmapLruCache;
 
 public class DrawerAdapter extends BaseAdapter {

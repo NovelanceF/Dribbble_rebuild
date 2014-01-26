@@ -7,10 +7,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.widget.TextView;
 
-import com.lance.dribbb.R;
+import nl.lance.dribbb.R;
 
 import me.imid.swipebacklayout.lib.app.SwipeBackActivity;
-import nl.lance.dribbb.shots.ShotsFragment;
+import nl.lance.dribbb.shots.fragment.ShotsFragment;
 import nl.lance.dribbb.views.FooterState;
 
 public class UActivity extends SwipeBackActivity {

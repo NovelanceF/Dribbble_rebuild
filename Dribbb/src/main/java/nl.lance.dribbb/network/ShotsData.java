@@ -45,7 +45,7 @@ public class ShotsData {
           public void onResponse(JSONObject arg0) {
             try {
               initShotsList(arg0);
-              f.setState(nl.lance.dribbb.views.FooterState.State.Idle);
+              f.setState(FooterState.State.Idle);
               adapter.notifyDataSetChanged();
             } catch (JSONException e) {
               e.printStackTrace();
@@ -75,6 +75,7 @@ public class ShotsData {
       map.put("image_teaser_url", array.getJSONObject(i).getString("image_teaser_url"));
       map.put("views_count", array.getJSONObject(i).getString("views_count"));
       map.put("likes_count", array.getJSONObject(i).getString("likes_count"));
+      map.put("comments_count", array.getJSONObject(i).getString("comments_count").toString());
       
       //player
       map.put("player_name", array.getJSONObject(i).getJSONObject("player").getString("name").toString());

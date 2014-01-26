@@ -15,13 +15,14 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.NetworkImageView;
 import com.android.volley.toolbox.Volley;
-import com.lance.dribbb.R;
 
 import java.util.List;
 import java.util.Map;
 
 import nl.lance.dribbb.network.BitmapLruCache;
+import nl.lance.dribbb.network.ShotsData;
 import nl.lance.dribbb.views.FooterState;
+import nl.lance.dribbb.R;
 
 public class ContentShotsAdapter extends BaseAdapter{
   
@@ -99,12 +100,12 @@ public class ContentShotsAdapter extends BaseAdapter{
   }
   
   private boolean listEnd() {
-    if(getCount() == nl.lance.dribbb.network.ShotsData.getSize()) {
+    if(getCount() == ShotsData.getSize()) {
       Log.i("isListEnd", "YES");
     } else {
       Log.i("isListEnd", "False");
     }
-    return getCount() == nl.lance.dribbb.network.ShotsData.getSize();
+    return getCount() == ShotsData.getSize();
   }
   
   private ViewGroup.LayoutParams getParams(Holder holder){

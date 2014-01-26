@@ -1,0 +1,184 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#ff444444"
+                android:id="@+id/detailactivityx"
+                android:descendantFocusability="blocksDescendants"
+                tools:context=".DetailActivity" >
+
+    <RelativeLayout
+        android:id="@+id/aboutdesigner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#ff282828" >
+
+        <net.frakbot.imageviewex.ImageViewNext
+            android:id="@+id/avatarimage"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
+            android:src="@drawable/ic_launcher" />
+
+        <TextView
+            android:id="@+id/detailtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textSize="19sp"
+            android:layout_toRightOf="@+id/avatarimage"
+            android:text="@string/hello_world"
+            android:textColor="#ffffffff" />
+
+        <TextView
+            android:id="@+id/detaildesigner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/detailtitle"
+            android:layout_marginTop="2dp"
+            android:layout_toRightOf="@+id/avatarimage"
+            android:text="Name"
+            android:textColor="#ffe23177" />
+
+        <net.frakbot.imageviewex.ImageViewNext
+            android:id="@+id/detailimage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/avatarimage"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/ic_launcher" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/detailimage" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#ff282828" >
+
+                <ImageView
+                    android:layout_weight="1"
+                    android:layout_width="20dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginTop="22dp"
+                    android:src="@drawable/ic_views" />
+
+                <TextView
+                    android:layout_weight="1"
+                    android:id="@+id/detailviews"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="Views"
+                    android:textSize="12sp"
+                    android:textColor="#ffffffff" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#ff404040" >
+
+                <ImageView
+                    android:layout_weight="1"
+                    android:layout_width="18dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="23dp"
+                    android:layout_marginTop="22dp"
+                    android:src="@drawable/ic_likes" />
+
+                <TextView
+                    android:layout_weight="1"
+                    android:id="@+id/detaillikes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="Likes"
+                    android:textSize="12sp"
+                    android:textColor="#ffffffff" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#ff555555">
+
+                <ImageView
+                    android:layout_weight="1"
+                    android:layout_width="18dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginTop="22dp"
+                    android:src="@drawable/ic_comment" />
+
+                <TextView
+                    android:layout_weight="1"
+                    android:id="@+id/detailcomments"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:textSize="12sp"
+                    android:text="Comments"
+                    android:textColor="#ffffffff" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></LinearLayout>
+
+    <GridView
+        android:id="@+id/moreshots"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/aboutdesigner"
+        android:layout_above="@+id/buttons"
+        android:layoutAnimation="@anim/list_controller"
+        android:numColumns="3"
+        ></GridView>
+
+    <LinearLayout
+        android:id="@+id/buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:orientation="horizontal" >
+
+        <ImageButton
+            android:id="@+id/weibo"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:src="@drawable/weibo"
+            android:background="#ffe03e7d"/>
+
+        <ImageButton
+            android:id="@+id/twitter"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:src="@drawable/twitter"
+            android:background="#ffde6594" />
+
+        <ImageButton
+            android:id="@+id/collect"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:src="@drawable/collect"
+            android:background="#ffdc88a9" />
+
+    </LinearLayout>
+
+</RelativeLayout>

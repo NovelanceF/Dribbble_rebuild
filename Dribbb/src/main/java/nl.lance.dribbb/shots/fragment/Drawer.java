@@ -1,4 +1,4 @@
-package nl.lance.dribbb.shots;
+package nl.lance.dribbb.shots.fragment;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -16,7 +16,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.EditText;
 import android.widget.ListView;
 
-import com.lance.dribbb.R;
+import nl.lance.dribbb.R;
 
 import nl.lance.dribbb.activites.UActivity;
 import nl.lance.dribbb.adapter.DrawerAdapter;

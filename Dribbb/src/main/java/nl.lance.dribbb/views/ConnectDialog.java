@@ -8,7 +8,7 @@ import android.content.SharedPreferences;
 import android.view.View;
 import android.widget.EditText;
 
-import com.lance.dribbb.R;
+import nl.lance.dribbb.R;
 
 public class ConnectDialog {
   

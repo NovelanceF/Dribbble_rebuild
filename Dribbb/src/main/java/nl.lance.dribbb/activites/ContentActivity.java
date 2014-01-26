@@ -19,11 +19,11 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.astuetz.PagerSlidingTabStrip;
-import com.lance.dribbb.R;
+import nl.lance.dribbb.R;
 
 import nl.lance.dribbb.animation.ZoomOutPageTransformer;
-import nl.lance.dribbb.shots.Drawer;
-import nl.lance.dribbb.shots.ShotsFragment;
+import nl.lance.dribbb.shots.fragment.Drawer;
+import nl.lance.dribbb.shots.fragment.ShotsFragment;
 
 public class ContentActivity extends FragmentActivity implements OnPageChangeListener {
 

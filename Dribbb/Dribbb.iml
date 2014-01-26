@@ -72,6 +72,9 @@
     <orderEntry type="library" exported="" name="support-v4-19.0.1" level="project" />
     <orderEntry type="library" exported="" name="volley" level="project" />
     <orderEntry type="library" exported="" name="ComAndroidSupportAppcompatV71901.aar" level="project" />
+    <orderEntry type="library" name="nineoldandroids-2.4.0" level="project" />
+    <orderEntry type="library" name="okhttp-1.2.1-jar-with-dependencies" level="project" />
+    <orderEntry type="library" name="disklrucache-2.0.2" level="project" />
   </component>
 </module>
 

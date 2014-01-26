@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 
-import com.lance.dribbb.R;
+import nl.lance.dribbb.R;
 
 import nl.lance.dribbb.activites.ContentActivity;
 

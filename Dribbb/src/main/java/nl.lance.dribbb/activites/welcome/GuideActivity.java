@@ -20,11 +20,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.lance.dribbb.R;
-
 import java.util.ArrayList;
 import java.util.List;
 
+import nl.lance.dribbb.R;
 import nl.lance.dribbb.activites.ContentActivity;
 import nl.lance.dribbb.animation.DepthPageTransformer;
 

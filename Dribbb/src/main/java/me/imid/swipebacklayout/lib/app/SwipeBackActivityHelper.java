@@ -1,15 +1,15 @@
 
 package me.imid.swipebacklayout.lib.app;
 
-import java.lang.reflect.Method;
-
-import me.imid.swipebacklayout.lib.SwipeBackLayout;
 import android.app.Activity;
 import android.graphics.drawable.ColorDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 
-import com.lance.dribbb.R;
+import java.lang.reflect.Method;
+
+import me.imid.swipebacklayout.lib.SwipeBackLayout;
+import nl.lance.dribbb.R;
 
 /**
  * @author Yrom

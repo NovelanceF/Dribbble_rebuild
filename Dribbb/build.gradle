@@ -25,4 +25,7 @@ android {
 dependencies {
 	compile 'com.android.support:appcompat-v7:+'
     compile files('lib/volley.jar')
+    compile files('lib/nineoldandroid-2.4.0.jar')
+    compile files('lib/disklrucache-2.0.2.jar')
+    compile files('lib/okhttp-1.2.1-jar-with-dependencies.jar')
 }

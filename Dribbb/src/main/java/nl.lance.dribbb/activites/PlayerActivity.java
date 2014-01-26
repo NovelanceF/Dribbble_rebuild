@@ -4,15 +4,14 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 
-import com.lance.dribbb.R;
-import com.lance.dribbb.R.layout;
+import nl.lance.dribbb.R;
 
 public class PlayerActivity extends Activity {
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(layout.activity_player);
+    setContentView(R.layout.activity_player);
   }
 
   @Override

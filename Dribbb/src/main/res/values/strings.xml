@@ -10,5 +10,6 @@
     <string name="title_activity_guide">GuideActivity</string>
     <string name="title_activity_player">PlayerActivity</string>
     <string name="title_activity_u">UActivity</string>
+    <string name="title_activity_shots_detail">ShotsDetail</string>
 
 </resources>

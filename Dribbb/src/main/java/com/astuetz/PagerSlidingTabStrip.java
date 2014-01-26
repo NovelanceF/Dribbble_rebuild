@@ -39,9 +39,9 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.lance.dribbb.R;
-
 import java.util.Locale;
+
+import nl.lance.dribbb.R;
 
 
 public class PagerSlidingTabStrip extends HorizontalScrollView {
