@@ -1,4 +1,4 @@
-package com.lance.dribbb.network;
+package nl.lance.dribbb.network;
 
 public class DribbbleAPI {
   

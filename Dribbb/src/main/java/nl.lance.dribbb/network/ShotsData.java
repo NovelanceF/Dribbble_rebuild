@@ -1,19 +1,6 @@
-package com.lance.dribbb.network;
+package nl.lance.dribbb.network;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import android.R.integer;
 import android.app.Activity;
-import android.hardware.Camera.Size;
-import android.util.Log;
-import android.widget.GridView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -21,8 +8,18 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.lance.dribbb.adapter.ContentShotsAdapter;
-import com.lance.dribbb.views.FooterState;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import nl.lance.dribbb.adapter.ContentShotsAdapter;
+import nl.lance.dribbb.views.FooterState;
 
 public class ShotsData {
 
@@ -48,7 +45,7 @@ public class ShotsData {
           public void onResponse(JSONObject arg0) {
             try {
               initShotsList(arg0);
-              f.setState(FooterState.State.Idle);
+              f.setState(nl.lance.dribbb.views.FooterState.State.Idle);
               adapter.notifyDataSetChanged();
             } catch (JSONException e) {
               e.printStackTrace();

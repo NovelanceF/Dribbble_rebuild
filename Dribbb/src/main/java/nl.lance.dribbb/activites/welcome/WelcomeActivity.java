@@ -1,4 +1,4 @@
-package com.lance.dribbb.activites.welcome;
+package nl.lance.dribbb.activites.welcome;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -8,7 +8,8 @@ import android.os.Handler;
 import android.os.Message;
 
 import com.lance.dribbb.R;
-import com.lance.dribbb.activites.ContentActivity;
+
+import nl.lance.dribbb.activites.ContentActivity;
 
 public class WelcomeActivity extends Activity {
 	

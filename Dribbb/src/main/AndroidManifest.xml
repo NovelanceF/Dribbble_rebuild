@@ -18,7 +18,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.lance.dribbb.activites.welcome.WelcomeActivity"
+            android:name="nl.lance.dribbb.activites.welcome.WelcomeActivity"
             android:label="@string/app_name"
             android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen" >
             <intent-filter>
@@ -28,20 +28,20 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.lance.dribbb.activites.ContentActivity"
+            android:name="nl.lance.dribbb.activites.ContentActivity"
             android:label="@string/title_activity_content" >
         </activity>
         <activity
-            android:name="com.lance.dribbb.activites.welcome.GuideActivity"
+            android:name="nl.lance.dribbb.activites.welcome.GuideActivity"
             android:label="@string/title_activity_guide"
             android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen" >
         </activity>
         <activity
-            android:name="com.lance.dribbb.activites.PlayerActivity"
+            android:name="nl.lance.dribbb.activites.PlayerActivity"
             android:label="@string/title_activity_player" >
         </activity>
         <activity
-            android:name="com.lance.dribbb.activites.UActivity"
+            android:name="nl.lance.dribbb.activites.UActivity"
             android:label="@string/title_activity_u" >
         </activity>
     </application>

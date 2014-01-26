@@ -1,7 +1,4 @@
-package com.lance.dribbb.activites.welcome;
-
-import java.util.ArrayList;
-import java.util.List;
+package nl.lance.dribbb.activites.welcome;
 
 import android.app.Activity;
 import android.content.Context;
@@ -24,8 +21,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.lance.dribbb.R;
-import com.lance.dribbb.activites.ContentActivity;
-import com.lance.dribbb.animation.DepthPageTransformer;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import nl.lance.dribbb.activites.ContentActivity;
+import nl.lance.dribbb.animation.DepthPageTransformer;
 
 public class GuideActivity extends Activity implements OnPageChangeListener {
 

@@ -1,4 +1,4 @@
-package com.lance.dribbb.application;
+package nl.lance.dribbb.application;
 
 import android.app.Application;
 import android.content.Context;

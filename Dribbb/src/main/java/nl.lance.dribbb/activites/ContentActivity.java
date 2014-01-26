@@ -1,4 +1,4 @@
-package com.lance.dribbb.activites;
+package nl.lance.dribbb.activites;
 
 import android.app.ActionBar;
 import android.content.res.Resources;
@@ -20,10 +20,10 @@ import android.widget.TextView;
 
 import com.astuetz.PagerSlidingTabStrip;
 import com.lance.dribbb.R;
-import com.lance.dribbb.animation.ZoomOutPageTransformer;
-import com.lance.dribbb.fragment.shots.Drawer;
-import com.lance.dribbb.fragment.shots.ShotsFragment;
-import com.lance.dribbb.network.DribbbleAPI;
+
+import nl.lance.dribbb.animation.ZoomOutPageTransformer;
+import nl.lance.dribbb.shots.Drawer;
+import nl.lance.dribbb.shots.ShotsFragment;
 
 public class ContentActivity extends FragmentActivity implements OnPageChangeListener {
 
@@ -108,7 +108,7 @@ public class ContentActivity extends FragmentActivity implements OnPageChangeLis
 
     @Override
     public Fragment getItem(int arg0) {
-      String urls[] = {DribbbleAPI.SHOTS_DEBUTS, DribbbleAPI.SHOTS_POPULAR, DribbbleAPI.SHOTS_EVERYONE};
+      String urls[] = {nl.lance.dribbb.network.DribbbleAPI.SHOTS_DEBUTS, nl.lance.dribbb.network.DribbbleAPI.SHOTS_POPULAR, nl.lance.dribbb.network.DribbbleAPI.SHOTS_EVERYONE};
       return new ShotsFragment(ContentActivity.this, urls[arg0], 200);
     }
 

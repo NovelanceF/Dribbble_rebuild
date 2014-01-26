@@ -1,13 +1,4 @@
-package com.lance.dribbb.network;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.w3c.dom.UserDataHandler;
+package nl.lance.dribbb.network;
 
 import android.app.Activity;
 import android.content.SharedPreferences;
@@ -19,7 +10,16 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.lance.dribbb.R;
-import com.lance.dribbb.adapter.DrawerAdapter;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import nl.lance.dribbb.adapter.DrawerAdapter;
 
 public class PlayerData {
   

@@ -1,11 +1,8 @@
-package com.lance.dribbb.fragment.shots;
+package nl.lance.dribbb.shots;
 
-import android.R.integer;
 import android.app.Activity;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,10 +12,10 @@ import android.widget.AbsListView.OnScrollListener;
 import android.widget.GridView;
 
 import com.lance.dribbb.R;
-import com.lance.dribbb.adapter.ContentShotsAdapter;
-import com.lance.dribbb.network.DribbbleAPI;
-import com.lance.dribbb.network.ShotsData;
-import com.lance.dribbb.views.FooterState;
+
+import nl.lance.dribbb.adapter.ContentShotsAdapter;
+import nl.lance.dribbb.network.ShotsData;
+import nl.lance.dribbb.views.FooterState;
 
 public class ShotsFragment extends Fragment {
   
@@ -49,11 +46,11 @@ public class ShotsFragment extends Fragment {
       
       @Override
       public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-        if(footerState.getState() == FooterState.State.Loading || footerState.getState() == FooterState.State.TheEnd) {
+        if(footerState.getState() == nl.lance.dribbb.views.FooterState.State.Loading || footerState.getState() == nl.lance.dribbb.views.FooterState.State.TheEnd) {
           return;
         }
         if(firstVisibleItem + visibleItemCount == totalItemCount && totalItemCount != 0 && totalItemCount != 2 && adapter.getCount() > 0) {
-          footerState.setState(FooterState.State.Loading);
+          footerState.setState(nl.lance.dribbb.views.FooterState.State.Loading);
           data.getShotsRefresh(currentUrl + getCurrentPage(), adapter, footerState);
           adapter.notifyDataSetChanged();
           Log.i("GRIDVIEW", "BOTTOM");
@@ -70,11 +67,11 @@ public class ShotsFragment extends Fragment {
   }
   
   private int getCurrentPage(){
-    if(currentUrl.equals(DribbbleAPI.SHOTS_DEBUTS)){
+    if(currentUrl.equals(nl.lance.dribbb.network.DribbbleAPI.SHOTS_DEBUTS)){
       return ++ pageDebut;
-    } else if (currentUrl.equals(DribbbleAPI.SHOTS_POPULAR)) {
+    } else if (currentUrl.equals(nl.lance.dribbb.network.DribbbleAPI.SHOTS_POPULAR)) {
       return ++ pagePopular;
-    } else if (currentUrl.equals(DribbbleAPI.SHOTS_EVERYONE)){
+    } else if (currentUrl.equals(nl.lance.dribbb.network.DribbbleAPI.SHOTS_EVERYONE)){
       return ++ pageEveryone;
     } else {
       return ++ page;

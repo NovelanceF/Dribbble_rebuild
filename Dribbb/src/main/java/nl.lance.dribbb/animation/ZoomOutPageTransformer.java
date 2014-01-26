@@ -1,7 +1,7 @@
-package com.lance.dribbb.animation;
+package nl.lance.dribbb.animation;
 
-import android.view.View;
 import android.support.v4.view.ViewPager;
+import android.view.View;
 
 public class ZoomOutPageTransformer implements ViewPager.PageTransformer {
   private static float MIN_SCALE = 0.85f;

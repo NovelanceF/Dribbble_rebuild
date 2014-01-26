@@ -1,4 +1,4 @@
-package com.lance.dribbb.fragment.shots;
+package nl.lance.dribbb.shots;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -7,22 +7,21 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.provider.ContactsContract.Contacts.Data;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.EditText;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.EditText;
 import android.widget.ListView;
 
 import com.lance.dribbb.R;
-import com.lance.dribbb.activites.UActivity;
-import com.lance.dribbb.adapter.DrawerAdapter;
-import com.lance.dribbb.network.DribbbleAPI;
-import com.lance.dribbb.network.PlayerData;
-import com.lance.dribbb.views.ConnectDialog;
+
+import nl.lance.dribbb.activites.UActivity;
+import nl.lance.dribbb.adapter.DrawerAdapter;
+import nl.lance.dribbb.network.PlayerData;
+import nl.lance.dribbb.views.ConnectDialog;
 
 public class Drawer extends Fragment {
   
@@ -58,11 +57,11 @@ public class Drawer extends Fragment {
         }
         if(!userInfo.getString("avatar_url", "").equals("")) {
           if (arg2 == 1) {
-            bundle.putString("url", DribbbleAPI.getUserFollowingUrl(userInfo.getString("username", "")));
+            bundle.putString("url", nl.lance.dribbb.network.DribbbleAPI.getUserFollowingUrl(userInfo.getString("username", "")));
             intent.putExtras(bundle);
             getActivity().startActivity(intent);
           } else if (arg2 == 2) {
-            bundle.putString("url", DribbbleAPI.getuserLikesUel(userInfo.getString("username", "")));
+            bundle.putString("url", nl.lance.dribbb.network.DribbbleAPI.getuserLikesUel(userInfo.getString("username", "")));
             intent.putExtras(bundle);
             getActivity().startActivity(intent);
           }
@@ -90,7 +89,7 @@ public class Drawer extends Fragment {
           public void onClick(DialogInterface dialog, int which) {
             if(editText.getText().toString() != "") {
               userInfo.edit().putString("username", editText.getText().toString()).commit();
-              data.getPlayerInfo(DribbbleAPI.getUserUrl(userInfo.getString("username", "")), adapter);
+              data.getPlayerInfo(nl.lance.dribbb.network.DribbbleAPI.getUserUrl(userInfo.getString("username", "")), adapter);
             }
           }
         }).setNegativeButton("Cancel", null).show();

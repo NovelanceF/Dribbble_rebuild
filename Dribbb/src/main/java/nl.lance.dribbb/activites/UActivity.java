@@ -1,21 +1,17 @@
-package com.lance.dribbb.activites;
+package nl.lance.dribbb.activites;
 
-import me.imid.swipebacklayout.lib.app.SwipeBackActivity;
 import android.app.ActionBar;
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
-import android.util.Log;
 import android.view.Menu;
-import android.view.Window;
 import android.widget.TextView;
 
 import com.lance.dribbb.R;
-import com.lance.dribbb.fragment.shots.ShotsFragment;
-import com.lance.dribbb.views.FooterState;
+
+import me.imid.swipebacklayout.lib.app.SwipeBackActivity;
+import nl.lance.dribbb.shots.ShotsFragment;
+import nl.lance.dribbb.views.FooterState;
 
 public class UActivity extends SwipeBackActivity {
 
@@ -57,7 +53,7 @@ public class UActivity extends SwipeBackActivity {
   protected void onStop() {
     super.onStop();
     FooterState state = new FooterState();
-    state.setState(FooterState.State.TheEnd);
+    state.setState(nl.lance.dribbb.views.FooterState.State.TheEnd);
   }
 
 }

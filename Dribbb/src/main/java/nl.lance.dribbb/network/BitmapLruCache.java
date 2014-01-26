@@ -1,4 +1,4 @@
-package com.lance.dribbb.network;
+package nl.lance.dribbb.network;
 
 import android.graphics.Bitmap;
 import android.support.v4.util.LruCache;

@@ -1,4 +1,4 @@
-package com.lance.dribbb.views;
+package nl.lance.dribbb.views;
 
 
 public class FooterState {

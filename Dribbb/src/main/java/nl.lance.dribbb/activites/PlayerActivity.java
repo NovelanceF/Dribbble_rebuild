@@ -1,19 +1,18 @@
-package com.lance.dribbb.activites;
+package nl.lance.dribbb.activites;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.Menu;
 
 import com.lance.dribbb.R;
 import com.lance.dribbb.R.layout;
-import com.lance.dribbb.R.menu;
-
-import android.os.Bundle;
-import android.app.Activity;
-import android.view.Menu;
 
 public class PlayerActivity extends Activity {
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_player);
+    setContentView(layout.activity_player);
   }
 
   @Override

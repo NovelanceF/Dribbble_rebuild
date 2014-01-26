@@ -1,4 +1,4 @@
-package com.lance.dribbb.animation;
+package nl.lance.dribbb.animation;
 
 import android.support.v4.view.ViewPager;
 import android.view.View;

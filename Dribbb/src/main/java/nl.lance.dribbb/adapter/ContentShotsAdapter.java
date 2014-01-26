@@ -1,14 +1,6 @@
-package com.lance.dribbb.adapter;
+package nl.lance.dribbb.adapter;
 
-import java.util.List;
-import java.util.Map;
-
-import javax.crypto.interfaces.PBEKey;
-
-import android.R.integer;
 import android.app.Activity;
-import android.app.ActivityManager;
-import android.content.Context;
 import android.util.Log;
 import android.view.Display;
 import android.view.LayoutInflater;
@@ -18,18 +10,18 @@ import android.view.WindowManager;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.NetworkImageView;
 import com.android.volley.toolbox.Volley;
 import com.lance.dribbb.R;
-import com.lance.dribbb.activites.ContentActivity;
-import com.lance.dribbb.application.AppData;
-import com.lance.dribbb.network.BitmapLruCache;
-import com.lance.dribbb.network.ShotsData;
-import com.lance.dribbb.views.FooterState;
+
+import java.util.List;
+import java.util.Map;
+
+import nl.lance.dribbb.network.BitmapLruCache;
+import nl.lance.dribbb.views.FooterState;
 
 public class ContentShotsAdapter extends BaseAdapter{
   
@@ -107,12 +99,12 @@ public class ContentShotsAdapter extends BaseAdapter{
   }
   
   private boolean listEnd() {
-    if(getCount() == ShotsData.getSize()) {
+    if(getCount() == nl.lance.dribbb.network.ShotsData.getSize()) {
       Log.i("isListEnd", "YES");
     } else {
       Log.i("isListEnd", "False");
     }
-    return getCount() == ShotsData.getSize();
+    return getCount() == nl.lance.dribbb.network.ShotsData.getSize();
   }
   
   private ViewGroup.LayoutParams getParams(Holder holder){

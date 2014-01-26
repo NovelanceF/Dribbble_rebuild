@@ -1,9 +1,5 @@
-package com.lance.dribbb.adapter;
+package nl.lance.dribbb.adapter;
 
-import java.util.List;
-import java.util.Map;
-
-import android.R.integer;
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
@@ -18,7 +14,11 @@ import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.NetworkImageView;
 import com.android.volley.toolbox.Volley;
 import com.lance.dribbb.R;
-import com.lance.dribbb.network.BitmapLruCache;
+
+import java.util.List;
+import java.util.Map;
+
+import nl.lance.dribbb.network.BitmapLruCache;
 
 public class DrawerAdapter extends BaseAdapter {
   

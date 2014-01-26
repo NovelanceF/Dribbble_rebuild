@@ -1,6 +1,5 @@
-package com.lance.dribbb.views;
+package nl.lance.dribbb.views;
 
-import android.R.integer;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
