@@ -1,63 +1,64 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#ff444444"
-                android:id="@+id/detailactivityx"
-                android:descendantFocusability="blocksDescendants"
-                tools:context=".DetailActivity" >
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ff444444"
+    android:id="@+id/detailactivityx"
+    android:descendantFocusability="blocksDescendants"
+    tools:context=".DetailActivity">
 
     <RelativeLayout
-        android:id="@+id/aboutdesigner"
+        android:id="@+id/player"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#ff282828" >
+        android:background="#ff282828">
 
         <net.frakbot.imageviewex.ImageViewNext
-            android:id="@+id/avatarimage"
+            android:id="@+id/detail_avatar"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_margin="10dp"
-            android:src="@drawable/ic_launcher" />
+            android:src="@drawable/ic_launcher"/>
 
         <TextView
-            android:id="@+id/detailtitle"
+            android:id="@+id/detail_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:textSize="19sp"
-            android:layout_toRightOf="@+id/avatarimage"
+            android:layout_toRightOf="@+id/detail_avatar"
             android:text="@string/hello_world"
-            android:textColor="#ffffffff" />
+            android:textColor="#ffffffff"/>
 
         <TextView
-            android:id="@+id/detaildesigner"
+            android:id="@+id/detail_player"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/detailtitle"
+            android:layout_below="@+id/detail_title"
             android:layout_marginTop="2dp"
-            android:layout_toRightOf="@+id/avatarimage"
+            android:layout_toRightOf="@+id/detail_avatar"
             android:text="Name"
-            android:textColor="#ffe23177" />
+            android:textColor="#ffe23177"/>
 
         <net.frakbot.imageviewex.ImageViewNext
-            android:id="@+id/detailimage"
+            android:id="@+id/detail_image"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/avatarimage"
+            android:layout_below="@+id/detail_avatar"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/ic_launcher" />
+            android:src="@drawable/ic_launcher"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/detailimage" >
+            android:layout_below="@+id/detail_image">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="#ff282828" >
+                android:background="#ff282828">
 
                 <ImageView
                     android:layout_weight="1"
@@ -65,24 +66,24 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
                     android:layout_marginTop="22dp"
-                    android:src="@drawable/ic_views" />
+                    android:src="@drawable/ic_views"/>
 
                 <TextView
                     android:layout_weight="1"
-                    android:id="@+id/detailviews"
+                    android:id="@+id/detail_views"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:text="Views"
                     android:textSize="12sp"
-                    android:textColor="#ffffffff" />
+                    android:textColor="#ffffffff"/>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="#ff404040" >
+                android:background="#ff404040">
 
                 <ImageView
                     android:layout_weight="1"
@@ -90,17 +91,17 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="23dp"
                     android:layout_marginTop="22dp"
-                    android:src="@drawable/ic_likes" />
+                    android:src="@drawable/ic_likes"/>
 
                 <TextView
                     android:layout_weight="1"
-                    android:id="@+id/detaillikes"
+                    android:id="@+id/detail_likes"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:text="Likes"
                     android:textSize="12sp"
-                    android:textColor="#ffffffff" />
+                    android:textColor="#ffffffff"/>
             </LinearLayout>
 
             <LinearLayout
@@ -115,17 +116,17 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
                     android:layout_marginTop="22dp"
-                    android:src="@drawable/ic_comment" />
+                    android:src="@drawable/ic_comment"/>
 
                 <TextView
                     android:layout_weight="1"
-                    android:id="@+id/detailcomments"
+                    android:id="@+id/detail_commentss"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:textSize="12sp"
                     android:text="Comments"
-                    android:textColor="#ffffffff" />
+                    android:textColor="#ffffffff"/>
 
             </LinearLayout>
 
@@ -141,7 +142,7 @@
         android:id="@+id/moreshots"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/aboutdesigner"
+        android:layout_below="@+id/player"
         android:layout_above="@+id/buttons"
         android:layoutAnimation="@anim/list_controller"
         android:numColumns="3"
@@ -153,7 +154,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:orientation="horizontal" >
+        android:orientation="horizontal">
 
         <ImageButton
             android:id="@+id/weibo"
@@ -169,7 +170,7 @@
             android:layout_height="60dp"
             android:layout_weight="1"
             android:src="@drawable/twitter"
-            android:background="#ffde6594" />
+            android:background="#ffde6594"/>
 
         <ImageButton
             android:id="@+id/collect"
@@ -177,7 +178,7 @@
             android:layout_height="60dp"
             android:layout_weight="1"
             android:src="@drawable/collect"
-            android:background="#ffdc88a9" />
+            android:background="#ffdc88a9"/>
 
     </LinearLayout>
 

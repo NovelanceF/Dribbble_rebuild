@@ -60,6 +60,7 @@ public class ShotsFragment extends Fragment {
         bundle.putString("player_name", data.getList().get(position).get("player_name").toString());
         bundle.putString("player_avatar_url", data.getList().get(position).get("player_avatar_url").toString());
 
+        intent.putExtras(bundle);
         getActivity().startActivity(intent);
         getActivity().overridePendingTransition(R.anim.abc_fade_in, R.anim.abc_fade_out);
       }

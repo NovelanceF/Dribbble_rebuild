@@ -16,7 +16,7 @@ public class ShotsDetail extends SwipeBackActivity {
     setContentView(R.layout.activity_shots_detail);
 
     getSupportFragmentManager().beginTransaction()
-            .replace(R.id.container, new ShotDetailFragment(getIntent().getExtras())).commit();
+            .replace(R.id.container, new ShotDetailFragment()).commit();
   }
 
 

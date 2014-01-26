@@ -22,6 +22,10 @@
     <style name="MyActionBarTabs" parent="@android:style/Widget.Holo.ActionBar.TabView">
         <!-- tab indicator -->
     </style>
+
+    <style name="DetailActivityTheme" parent="android:Theme.Holo.NoActionBar">
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
     
     <style name="SwipeBackLayout">
         <item name="edge_size">50dip</item>
