@@ -18,8 +18,6 @@ import nl.lance.dribbb.R;
  */
 public class ShotDetailFragment extends Fragment {
 
-  private Bundle shotDetail = new Bundle();
-
   public ShotDetailFragment() {
   }
 
@@ -33,6 +31,8 @@ public class ShotDetailFragment extends Fragment {
 
   private void initShotDetail(View view) {
 
+    Bundle bundle = getActivity().getIntent().getExtras();
+
     ImageViewNext playerAvatar = (ImageViewNext)view.findViewById(R.id.detail_avatar);
     ImageViewNext detailimage = (ImageViewNext)view.findViewById(R.id.detail_image);
 
@@ -44,8 +44,13 @@ public class ShotDetailFragment extends Fragment {
     TextView likes = (TextView)view.findViewById(R.id.detail_likes);
     TextView comments = (TextView)view.findViewById(R.id.detail_commentss);
 
-    playerAvatar.setUrl(getActivity().getIntent().getExtras().getString("player_avatar_url"));
-    detailimage.setUrl(getActivity().getIntent().getExtras().getString("image_url"));
+    playerAvatar.setUrl(bundle.getString("player_avatar_url"));
+    detailimage.setUrl(bundle.getString("image_url"));
+    title.setText(bundle.getString("title"));
+    player.setText(bundle.getString("player_name"));
+    views.setText(bundle.getString("views_count"));
+    likes.setText(bundle.getString("likes_count"));
+    comments.setText(bundle.getString("comments_count"));
 
    }
 
