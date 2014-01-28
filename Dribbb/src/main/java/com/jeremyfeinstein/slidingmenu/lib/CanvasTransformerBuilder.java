@@ -1,4 +1,4 @@
-package com.jeremydeinstein.slidingmenu.lib;
+package com.jeremyfeinstein.slidingmenu.lib;
 
 import android.graphics.Canvas;
 import android.view.animation.Interpolator;

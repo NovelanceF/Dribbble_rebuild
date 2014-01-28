@@ -1,4 +1,4 @@
-package com.jeremydeinstein.slidingmenu.lib.app;
+package com.jeremyfeinstein.slidingmenu.lib.app;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;

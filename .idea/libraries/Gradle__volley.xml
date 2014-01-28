@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Gradle: volley">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Dribbb/lib/volley.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

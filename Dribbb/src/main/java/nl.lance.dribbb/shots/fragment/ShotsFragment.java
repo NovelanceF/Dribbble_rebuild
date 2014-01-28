@@ -50,6 +50,7 @@ public class ShotsFragment extends Fragment {
         Bundle bundle = new Bundle();
 
         //shots
+        bundle.putString("id", data.getList().get(position).get("id").toString());
         bundle.putString("title", data.getList().get(position).get("title").toString());
         bundle.putString("image_url", data.getList().get(position).get("image_url").toString());
         bundle.putString("views_count", data.getList().get(position).get("views_count").toString());

@@ -1,4 +1,4 @@
-package com.jeremydeinstein.slidingmenu.lib.app;
+package com.jeremyfeinstein.slidingmenu.lib.app;
 
 import android.app.ListActivity;
 import android.os.Bundle;

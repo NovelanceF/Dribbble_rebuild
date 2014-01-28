@@ -1,4 +1,4 @@
-package com.jeremydeinstein.slidingmenu.lib;
+package com.jeremyfeinstein.slidingmenu.lib;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -14,6 +14,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu.CanvasTransformer;
+
+import nl.lance.dribbb.R;
 
 public class CustomViewBehind extends ViewGroup {
 

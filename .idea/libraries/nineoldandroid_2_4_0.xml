@@ -1,8 +1,6 @@
 <component name="libraryTable">
   <library name="nineoldandroid-2.4.0">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/Dribbb/lib/nineoldandroid-2.4.0.jar!/" />
-    </CLASSES>
+    <CLASSES />
     <JAVADOC />
     <SOURCES />
   </library>

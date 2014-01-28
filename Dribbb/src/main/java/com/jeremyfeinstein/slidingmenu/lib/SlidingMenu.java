@@ -1,6 +1,4 @@
-package com.jeremydeinstein.slidingmenu.lib;
-
-import java.lang.reflect.Method;
+package com.jeremyfeinstein.slidingmenu.lib;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
@@ -28,6 +26,10 @@ import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 
 import com.jeremyfeinstein.slidingmenu.lib.CustomViewAbove.OnPageChangeListener;
+
+import java.lang.reflect.Method;
+
+import nl.lance.dribbb.R;
 
 public class SlidingMenu extends RelativeLayout {
 

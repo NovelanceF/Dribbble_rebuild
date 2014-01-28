@@ -20,4 +20,8 @@ public class DribbbleAPI {
     return "http://api.dribbble.com/players/" + username;
   }
 
+  public static String getCommentsUrl(String id) {
+    return "http://api.dribbble.com/shots/" + id + "/comments";
+  }
+
 }

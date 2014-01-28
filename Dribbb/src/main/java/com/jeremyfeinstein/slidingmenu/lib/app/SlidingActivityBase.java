@@ -1,4 +1,4 @@
-package com.jeremydeinstein.slidingmenu.lib.app;
+package com.jeremyfeinstein.slidingmenu.lib.app;
 
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;

@@ -1,4 +1,4 @@
-package com.jeremydeinstein.slidingmenu.lib;
+package com.jeremyfeinstein.slidingmenu.lib;
 
 import java.util.ArrayList;
 import java.util.List;
