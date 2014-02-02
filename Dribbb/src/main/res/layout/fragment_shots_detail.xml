@@ -18,15 +18,16 @@
             android:id="@+id/detail_avatar"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_margin="10dp"
+            android:layout_margin="4dp"
+            android:padding="1dp"
             android:src="@drawable/ic_launcher"/>
 
         <TextView
             android:id="@+id/detail_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:textSize="19sp"
+            android:layout_marginTop="3dp"
+            android:textSize="18sp"
             android:layout_toRightOf="@+id/detail_avatar"
             android:text="@string/hello_world"
             android:textColor="#ffffffff"/>
@@ -37,6 +38,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/detail_title"
             android:layout_marginTop="2dp"
+            android:textSize="12sp"
             android:layout_toRightOf="@+id/detail_avatar"
             android:text="Name"
             android:textColor="#ffe23177"/>
@@ -51,21 +53,21 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:layout_below="@+id/detail_image">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="#ff282828">
 
                 <ImageView
                     android:layout_weight="1"
-                    android:layout_width="20dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
-                    android:layout_marginTop="22dp"
+                    android:layout_marginBottom="18dp"
+                    android:layout_marginTop="18dp"
                     android:src="@drawable/ic_views"/>
 
                 <TextView
@@ -73,7 +75,7 @@
                     android:id="@+id/detail_views"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="16dp"
                     android:text="Views"
                     android:textSize="12sp"
                     android:textColor="#ffffffff"/>
@@ -87,10 +89,10 @@
 
                 <ImageView
                     android:layout_weight="1"
-                    android:layout_width="18dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="23dp"
-                    android:layout_marginTop="22dp"
+                    android:layout_marginBottom="18dp"
+                    android:layout_marginTop="18dp"
                     android:src="@drawable/ic_likes"/>
 
                 <TextView
@@ -98,7 +100,7 @@
                     android:id="@+id/detail_likes"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="16dp"
                     android:text="Likes"
                     android:textSize="12sp"
                     android:textColor="#ffffffff"/>
@@ -112,10 +114,10 @@
 
                 <ImageView
                     android:layout_weight="1"
-                    android:layout_width="18dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
-                    android:layout_marginTop="22dp"
+                    android:layout_marginBottom="18dp"
+                    android:layout_marginTop="18dp"
                     android:src="@drawable/ic_comment"/>
 
                 <TextView
@@ -123,7 +125,7 @@
                     android:id="@+id/detail_commentss"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="16dp"
                     android:textSize="12sp"
                     android:text="Comments"
                     android:textColor="#ffffffff"/>
@@ -135,23 +137,30 @@
     </RelativeLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"></LinearLayout>
-
-    <GridView
-        android:id="@+id/moreshots"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/player"
-        android:layout_above="@+id/buttons"
-        android:layoutAnimation="@anim/list_controller"
-        android:numColumns="3"
-        ></GridView>
+        android:layout_above="@+id/buttons"></LinearLayout>
+
+    <HorizontalScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+        <GridView
+            android:id="@+id/more_shots"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layoutAnimation="@anim/list_controller"
+            android:numColumns="1"
+            ></GridView>
+
+    </HorizontalScrollView>
 
     <LinearLayout
         android:id="@+id/buttons"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:orientation="horizontal">
@@ -159,7 +168,7 @@
         <ImageButton
             android:id="@+id/weibo"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:src="@drawable/weibo"
             android:background="#ffe03e7d"/>
@@ -167,7 +176,7 @@
         <ImageButton
             android:id="@+id/twitter"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:src="@drawable/twitter"
             android:background="#ffde6594"/>
@@ -175,7 +184,7 @@
         <ImageButton
             android:id="@+id/collect"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:src="@drawable/collect"
             android:background="#ffdc88a9"/>
