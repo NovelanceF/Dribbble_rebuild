@@ -24,4 +24,8 @@ public class DribbbleAPI {
     return "http://api.dribbble.com/shots/" + id + "/comments";
   }
 
+  public static  String getReboundUrl(String id) {
+    return "http://api.dribbble.com/shots/" + id + "/rebounds";
+  }
+
 }

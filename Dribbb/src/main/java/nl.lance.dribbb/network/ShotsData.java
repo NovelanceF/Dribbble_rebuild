@@ -122,6 +122,7 @@ public class ShotsData {
       map.put("comments_count", array.getJSONObject(i).getString("comments_count"));
 
       //player
+      map.put("username",array.getJSONObject(i).getJSONObject("player").getString("username") );
       map.put("player_name", array.getJSONObject(i).getJSONObject("player").getString("name"));
       map.put("player_avatar_url", array.getJSONObject(i).getJSONObject("player").getString("avatar_url"));
       getList().add(map);

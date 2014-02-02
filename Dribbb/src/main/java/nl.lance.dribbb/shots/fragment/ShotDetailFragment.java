@@ -1,24 +1,34 @@
 package nl.lance.dribbb.shots.fragment;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.GridView;
 import android.widget.TextView;
 
 import net.frakbot.imageviewex.ImageViewNext;
 
 import nl.lance.dribbb.R;
+import nl.lance.dribbb.adapter.ContentShotsAdapter;
+import nl.lance.dribbb.network.DribbbleAPI;
+import nl.lance.dribbb.network.ShotsData;
+import nl.lance.dribbb.views.FooterState;
 
 /**
  * Created by Novelance on 1/26/14.
  */
 public class ShotDetailFragment extends Fragment {
 
-  public ShotDetailFragment() {
+  ShotsData data;
+
+  public ShotDetailFragment(Activity a) {
+    data = new ShotsData(a);
   }
 
   @Override
@@ -26,7 +36,16 @@ public class ShotDetailFragment extends Fragment {
     View rootView = inflater.inflate(R.layout.fragment_shots_detail, container, false);
     ImageViewNext.setMaximumNumberOfThreads(200);
     initShotDetail(rootView);
+    initMoreShots(rootView);
     return rootView;
+  }
+
+  private void initMoreShots(View view) {
+    GridView gridView = (GridView)view.findViewById(R.id.more_shots);
+    ContentShotsAdapter adapter = new ContentShotsAdapter(getActivity(), data.getList(), 1);
+    data.getShotsRefresh(DribbbleAPI.getuserLikesUel(getActivity().getIntent().getExtras().getString("player_username")) + "1", adapter, new FooterState());
+    Log.i("ReboundURL", DribbbleAPI.getuserLikesUel(getActivity().getIntent().getExtras().getString("player_username")));
+    gridView.setAdapter(adapter);
   }
 
   private void initShotDetail(View view) {

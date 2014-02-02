@@ -58,6 +58,7 @@ public class ShotsFragment extends Fragment {
         bundle.putString("comments_count", data.getList().get(position).get("comments_count").toString());
 
         //players
+        bundle.putString("player_username", data.getList().get(position).get("username").toString());
         bundle.putString("player_name", data.getList().get(position).get("player_name").toString());
         bundle.putString("player_avatar_url", data.getList().get(position).get("player_avatar_url").toString());
 

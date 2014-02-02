@@ -28,7 +28,7 @@ public class ShotsDetail extends SwipeBackActivity {
     mSwipeBackLayout.setEdgeTrackingEnabled(SwipeBackLayout.EDGE_LEFT);
 
     getSupportFragmentManager().beginTransaction()
-            .replace(R.id.container, new ShotDetailFragment()).commit();
+            .replace(R.id.container, new ShotDetailFragment(ShotsDetail.this)).commit();
 
     getSupportFragmentManager().beginTransaction()
             .replace(R.id.comments_list_container, new CommentsFragment(ShotsDetail.this)).commit();
