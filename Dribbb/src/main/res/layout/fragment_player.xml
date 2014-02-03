@@ -1,0 +1,141 @@
+<nl.lance.dribbb.views.ObservableScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scroll_view"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffeeeeee">
+
+        <RelativeLayout
+            android:id="@+id/player_about"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ff383838"
+                android:orientation="vertical">
+
+                <com.android.volley.toolbox.NetworkImageView
+                    android:id="@+id/player_avatar"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="28dp"
+                    android:src="@drawable/abc_ab_bottom_solid_dark_holo"/>
+
+                <TextView
+                    android:id="@+id/player_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="Designer name"
+                    android:textColor="#ffe23176"
+                    android:textSize="24sp"/>
+
+                <TextView
+                    android:id="@+id/player_likes_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="Likes and likes received"
+                    android:textColor="#fff4f4f4"
+                    android:textSize="12sp"/>
+
+                <TextView
+                    android:id="@+id/player_ff"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:text="Following and follower"
+                    android:textColor="#ffaaaaaa"
+                    android:textSize="12sp"/>
+            </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/player_collector"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="#00000000"
+                android:layout_margin="20dp"
+                android:src="@drawable/collect"/>
+        </RelativeLayout>
+
+        <FrameLayout
+            android:id="@+id/label_sticky"
+            android:layout_width="match_parent"
+            android:layout_height="48dp">
+
+            <LinearLayout
+                android:id="@+id/colors"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="#ff383838"
+                android:layout_alignParentBottom="true"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="#ffe23176"/>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="#ffe15089"/>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="#ffe2719d"/>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="#ffe188ab"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/shotslabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:text="Shots of player:"
+                android:layout_alignParentBottom="true"
+                android:textColor="#ffffffff"
+                android:layout_marginTop="8dp"
+                android:textSize="27sp"/>
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/label"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_below="@+id/player_about">
+
+        </FrameLayout>
+
+        <GridView
+            android:id="@+id/player_more_shots"
+            android:layout_width="match_parent"
+            android:layout_height="900dp"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/label"
+            android:layoutAnimation="@anim/list_controller"
+            android:numColumns="2"/>
+
+    </RelativeLayout>
+
+</nl.lance.dribbb.views.ObservableScrollView>

@@ -40,7 +40,8 @@
         </activity>
         <activity
             android:name="nl.lance.dribbb.activites.PlayerActivity"
-            android:label="@string/title_activity_player" >
+            android:label="@string/title_activity_player"
+            android:theme="@style/PlayerTheme">
         </activity>
         <activity
             android:name="nl.lance.dribbb.activites.UActivity"

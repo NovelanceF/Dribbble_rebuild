@@ -1,6 +1,7 @@
 package nl.lance.dribbb.shots.fragment;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.Display;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 import net.frakbot.imageviewex.ImageViewNext;
 
 import nl.lance.dribbb.R;
+import nl.lance.dribbb.activites.PlayerActivity;
 import nl.lance.dribbb.adapter.DetailAdapter;
 import nl.lance.dribbb.network.DribbbleAPI;
 import nl.lance.dribbb.network.ShotsData;
@@ -22,7 +24,7 @@ import nl.lance.dribbb.views.FooterState;
 /**
  * Created by Novelance on 1/26/14.
  */
-public class ShotDetailFragment extends Fragment {
+public class ShotDetailFragment extends Fragment implements View.OnClickListener{
 
   ShotsData data;
 
@@ -51,12 +53,14 @@ public class ShotDetailFragment extends Fragment {
     Bundle bundle = getActivity().getIntent().getExtras();
 
     ImageViewNext playerAvatar = (ImageViewNext)view.findViewById(R.id.detail_avatar);
+    playerAvatar.setOnClickListener(this);
     ImageViewNext detailimage = (ImageViewNext)view.findViewById(R.id.detail_image);
 
     setImageParmas(detailimage);
 
     TextView title = (TextView)view.findViewById(R.id.detail_title);
     TextView player = (TextView)view.findViewById(R.id.detail_player);
+    player.setOnClickListener(this);
     TextView views = (TextView)view.findViewById(R.id.detail_views);
     TextView likes = (TextView)view.findViewById(R.id.detail_likes);
     TextView comments = (TextView)view.findViewById(R.id.detail_commentss);
@@ -78,5 +82,12 @@ public class ShotDetailFragment extends Fragment {
     params.width = display.getWidth();
     params.height = display.getWidth() * 3 / 4;
     v.setLayoutParams(params);
+  }
+
+  @Override
+  public void onClick(View v) {
+    Intent intent = new Intent(getActivity(), PlayerActivity.class);
+    getActivity().startActivity(intent);
+    getActivity().overridePendingTransition(R.anim.abc_fade_in, R.anim.abc_fade_out);
   }
 }
