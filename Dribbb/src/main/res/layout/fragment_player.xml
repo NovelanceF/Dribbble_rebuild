@@ -2,12 +2,13 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/scroll_view"
     android:layout_width="wrap_content"
+    android:background="#ffdfdfdf"
     android:layout_height="wrap_content">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#ffeeeeee">
+        android:background="#ffdfdfdf">
 
         <RelativeLayout
             android:id="@+id/player_about"
@@ -69,6 +70,25 @@
         </RelativeLayout>
 
         <FrameLayout
+            android:id="@+id/label"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_below="@+id/player_about">
+
+        </FrameLayout>
+
+        <nl.lance.dribbb.views.ScrollGridView
+            android:id="@+id/player_more_shots"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/label"
+            android:layoutAnimation="@anim/list_controller"
+            android:verticalSpacing="7dp"
+            android:horizontalSpacing="7dp"
+            android:numColumns="2"/>
+
+        <FrameLayout
             android:id="@+id/label_sticky"
             android:layout_width="match_parent"
             android:layout_height="48dp">
@@ -118,23 +138,6 @@
                 android:textSize="27sp"/>
 
         </FrameLayout>
-
-        <FrameLayout
-            android:id="@+id/label"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_below="@+id/player_about">
-
-        </FrameLayout>
-
-        <GridView
-            android:id="@+id/player_more_shots"
-            android:layout_width="match_parent"
-            android:layout_height="900dp"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/label"
-            android:layoutAnimation="@anim/list_controller"
-            android:numColumns="2"/>
 
     </RelativeLayout>
 

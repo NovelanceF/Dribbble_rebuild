@@ -30,8 +30,8 @@ public class ContentShotsAdapter extends BaseAdapter{
   public LayoutInflater mInflater;
   public ImageLoader mImageLoader;
   public int padding;
+  public Activity mActivity;
 
-  private Activity mActivity;
   private RequestQueue mRequestQueue;
   
   public ContentShotsAdapter(Activity c, List<Map<String, Object>> list, int p) {
@@ -100,7 +100,7 @@ public class ContentShotsAdapter extends BaseAdapter{
     public ProgressBar pb;
   }
   
-  private boolean listEnd() {
+  public boolean listEnd() {
     if(getCount() == ShotsData.getSize()) {
       Log.i("isListEnd", "YES");
     } else {

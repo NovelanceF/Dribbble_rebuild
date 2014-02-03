@@ -17,7 +17,7 @@ public class DribbbleAPI {
   public final static  String tagBundleShots[] = {"id", "title", "image_url", "views_count", "likes_count", "comments_count",
           "username", "name", "avatar_url", "likes_count", "likes_received_count", "following_count", "followers_count" };
 
-  public final static String tagBundlePlayerInfo[] = {"avatar_url", "name", "likes_count", "likes_received_count", "following_count", "followers_count"};
+  public final static String tagBundlePlayerInfo[] = {"username", "avatar_url", "name", "likes_count", "likes_received_count", "following_count", "followers_count"};
   
   public static String getUserFollowingUrl(String username) {
     return "http://api.dribbble.com/players/" + username + "/shots/following/?page=";
@@ -37,6 +37,10 @@ public class DribbbleAPI {
 
   public static  String getReboundUrl(String id) {
     return "http://api.dribbble.com/shots/" + id + "/rebounds";
+  }
+
+  public static  String getPlayersShotUrl (String username) {
+    return "http://api.dribbble.com/players/" + username + "/shots";
   }
 
 }

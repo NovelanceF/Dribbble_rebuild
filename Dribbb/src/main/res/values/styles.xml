@@ -34,7 +34,7 @@
         <item name="shadow_bottom">@drawable/shadow_bottom</item>
     </style>
 
-    <style name="PlayerTheme" parent="android:Theme.Holo">
+    <style name="PlayerTheme" parent="android:Theme.Holo.Light.DarkActionBar">
         <!--
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to

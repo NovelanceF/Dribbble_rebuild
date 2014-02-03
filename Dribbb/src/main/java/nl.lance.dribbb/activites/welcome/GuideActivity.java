@@ -33,7 +33,6 @@ public class GuideActivity extends Activity implements OnPageChangeListener {
   private ViewPager vp;
   private List<View> views;
   private ViewPagerAdapter vpAdapter;
-  private int currentIndex;
   private LayoutInflater inflater;
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +44,6 @@ public class GuideActivity extends Activity implements OnPageChangeListener {
   }
   
   private void initPageNum() {
-    // TODO Auto-generated method stub
     pageNum = (TextView)findViewById(R.id.page_num);
     Typeface typeface = Typeface.createFromAsset(getAssets(), "font/Roboto-Thin.ttf");
     pageNum.setTypeface(typeface);
@@ -53,7 +51,6 @@ public class GuideActivity extends Activity implements OnPageChangeListener {
   }
   
   private void initViews() {
-    // TODO Auto-generated method stub
     views = new ArrayList<View>();
     
     views.add(inflater.inflate(R.layout.views_one, null));
