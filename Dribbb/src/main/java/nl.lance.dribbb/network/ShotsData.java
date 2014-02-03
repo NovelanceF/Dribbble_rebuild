@@ -123,7 +123,11 @@ public class ShotsData {
 
       JSONObject playerObject = array.getJSONObject(i).getJSONObject("player");
       for(int j = 0; j < tagsPlayer.length; j++) {
-        map.put(tagsPlayer[j],playerObject.getString(tagsPlayer[j]));
+        if(j == 5) {
+          map.put("player_"+tagsPlayer[j],playerObject.getString(tagsPlayer[j]));
+        } else {
+          map.put(tagsPlayer[j],playerObject.getString(tagsPlayer[j]));
+        }
       }
       getList().add(map);
 

@@ -53,6 +53,9 @@ public class ShotsFragment extends Fragment {
 
         for (int i = 0; i < tags.length; i++) {
           bundle.putString(tags[i], data.getList().get(position).get(tags[i]).toString());
+          if(i == 4) {
+            bundle.putString("player_"+tags[i], data.getList().get(position).get("player_"+tags[i]).toString());
+          }
         }
 
         intent.putExtras(bundle);

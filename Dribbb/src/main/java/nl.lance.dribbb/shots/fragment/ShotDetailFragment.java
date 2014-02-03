@@ -93,6 +93,9 @@ public class ShotDetailFragment extends Fragment implements View.OnClickListener
 
     for (int i = 0; i < tags.length; i ++ ) {
       playerBundle.putString(tags[i], bundle.getString(tags[i]));
+      if(i == 3) {
+        playerBundle.putString("player_"+tags[i], bundle.getString("player_"+tags[i]));
+      }
     }
 
     intent.putExtras(playerBundle);

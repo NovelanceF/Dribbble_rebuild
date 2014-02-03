@@ -77,7 +77,7 @@ public class PlayerFragment extends Fragment implements ObservableScrollView.Cal
     Bundle bundle = getActivity().getIntent().getExtras();
     avatar.setImageUrl(bundle.getString("avatar_url"), mImageLoader);
     name.setText(bundle.getString("name"));
-    String likesAndLiked = bundle.getString("likes_count") + " Likes, and "
+    String likesAndLiked = bundle.getString("player_likes_count") + " Likes, and "
             + bundle.getString("likes_received_count") + " Likes received.";
     likes.setText(likesAndLiked);
     String followingAndFollowers = bundle.getString("following_count") + " Following, and "
