@@ -25,13 +25,14 @@ import nl.lance.dribbb.views.FooterState;
 import nl.lance.dribbb.R;
 
 public class ContentShotsAdapter extends BaseAdapter{
-  
+
+  public List<Map<String, Object>> mList;
+  public LayoutInflater mInflater;
+  public ImageLoader mImageLoader;
+  public int padding;
+
   private Activity mActivity;
-  private List<Map<String, Object>> mList;
-  private LayoutInflater mInflater;
   private RequestQueue mRequestQueue;
-  private ImageLoader mImageLoader;
-  private int padding;
   
   public ContentShotsAdapter(Activity c, List<Map<String, Object>> list, int p) {
     this.mActivity = c;
@@ -93,7 +94,7 @@ public class ContentShotsAdapter extends BaseAdapter{
     return convertView;
   }
   
-  private static class Holder {
+  public static class Holder {
     public NetworkImageView shotsImage;
     public ImageView button;
     public ProgressBar pb;
@@ -108,7 +109,7 @@ public class ContentShotsAdapter extends BaseAdapter{
     return getCount() == ShotsData.getSize();
   }
   
-  private ViewGroup.LayoutParams getParams(Holder holder){
+  public ViewGroup.LayoutParams getParams(Holder holder){
     WindowManager manager = mActivity.getWindowManager();
     Display display = manager.getDefaultDisplay();
     ViewGroup.LayoutParams params = holder.shotsImage.getLayoutParams();

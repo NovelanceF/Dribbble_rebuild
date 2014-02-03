@@ -1,6 +1,7 @@
 package nl.lance.dribbb.adapter;
 
 import android.app.Activity;
+import android.graphics.Typeface;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -69,10 +70,13 @@ public class CommentsAdapter extends BaseAdapter {
       holder = (Holder)convertView.getTag();
     }
     String imageUrl = (String) mList.get(position).get("avatar_url");
+    Typeface typeface = Typeface.createFromAsset(mActivity.getAssets(), "font/Roboto-Light.ttf");
 
     holder.avatar.setImageUrl(imageUrl, mImageLoader);
     holder.player.setText(mList.get(position).get("name").toString());
+    holder.player.setTypeface(typeface);
     holder.body.setText(Html.fromHtml(mList.get(position).get("body").toString()));
+    holder.body.setTypeface(typeface);
     holder.createTime.setText(mList.get(position).get("created_at").toString());
     holder.likes.setText(mList.get(position).get("likes_count").toString());
 

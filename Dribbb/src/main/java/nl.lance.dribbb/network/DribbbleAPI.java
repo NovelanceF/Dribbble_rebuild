@@ -21,7 +21,7 @@ public class DribbbleAPI {
   }
 
   public static String getCommentsUrl(String id) {
-    return "http://api.dribbble.com/shots/" + id + "/comments";
+    return "http://api.dribbble.com/shots/" + id + "/comments/?page=";
   }
 
   public static  String getReboundUrl(String id) {

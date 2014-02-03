@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
@@ -9,7 +9,18 @@
         android:id="@+id/comments_listview"
         android:dividerHeight="1px"
         android:divider="#ffbbbbbb"
+        android:layout_below="@+id/comments_label"
+        android:paddingTop="5dp"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"></ListView>
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/comments_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Comments"
+        android:textColor="#ffffffff"
+        android:padding="7dp"
+        android:background="#ffe03e7d"/>
+
+</RelativeLayout>

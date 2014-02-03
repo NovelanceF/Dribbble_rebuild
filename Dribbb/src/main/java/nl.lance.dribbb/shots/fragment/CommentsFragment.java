@@ -1,8 +1,8 @@
 package nl.lance.dribbb.shots.fragment;
 
 import android.app.Activity;
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +20,7 @@ public class CommentsFragment extends Fragment{
 
   private CommentsAdapter adapter;
   private ShotsData data;
+  private int page = 1;
 
   public CommentsFragment(Activity a) {
     data = new ShotsData(a);
@@ -33,7 +34,10 @@ public class CommentsFragment extends Fragment{
     ListView listView = (ListView) rootView.findViewById(R.id.comments_listview);
     listView.setAdapter(adapter);
 
-    data.getCommentsRefresh(DribbbleAPI.getCommentsUrl(getActivity().getIntent().getExtras().getString("id")), adapter);
+    do {
+      data.getCommentsRefresh(DribbbleAPI.getCommentsUrl(getActivity().getIntent().getExtras().getString("id")) + page ++, adapter);
+    } while (page <= 6);
+
     return rootView;
   }
 }

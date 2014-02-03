@@ -1,7 +1,6 @@
 package nl.lance.dribbb.network;
 
 import android.app.Activity;
-import android.util.Log;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -30,6 +29,7 @@ public class ShotsData {
   List<Map<String, Object>> commentsList;
   private static int size;
   private static int commentsSize;
+  private static int commentsPages;
 
   public ShotsData(Activity a) {
 
@@ -52,8 +52,8 @@ public class ShotsData {
     return commentsList;
   }
 
-  public static int getCommentsSize() {
-    return commentsSize;
+  public static int getCommentsPages() {
+    return commentsPages;
   }
 
   public void getShotsRefresh(final String url, final ContentShotsAdapter adapter, final FooterState f) {
@@ -87,7 +87,7 @@ public class ShotsData {
               @Override
               public void onResponse(JSONObject jsonObject) {
                 try {
-                  Log.i("comments", jsonObject.toString());
+                  commentsPages = jsonObject.getInt("pages");
                   initCommentsList(jsonObject);
                   adapter.notifyDataSetChanged();
                 } catch (JSONException e) {
@@ -136,9 +136,10 @@ public class ShotsData {
 
   private void initCommentsList(JSONObject jsonObject) throws JSONException {
     int respond_count = jsonObject.getInt("per_page");
-    int totalPages = jsonObject.getInt("page");
+    int curPage = jsonObject.getInt("page");
     JSONArray array = jsonObject.getJSONArray("comments");
     commentsSize = jsonObject.getInt("total");
+    commentsPages = jsonObject.getInt("pages");
     for (int i = 0; i < respond_count; i++) {
       Map<String, Object> map = new HashMap<String, Object>();
 
@@ -153,7 +154,7 @@ public class ShotsData {
       map.put("avatar_url", array.getJSONObject(i).getJSONObject("player").getString("avatar_url"));
       getCommentsList().add(map);
 
-      if (respond_count * (totalPages - 1) + i + 1 == commentsSize) {
+      if (respond_count * (curPage - 1) + i + 1 == commentsSize) {
         break;
       }
     }

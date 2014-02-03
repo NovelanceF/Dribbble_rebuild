@@ -136,16 +136,35 @@
 
     </RelativeLayout>
 
-
     <GridView
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp"
         android:id="@+id/more_shots"
         android:layout_width="fill_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/player"
         android:layout_above="@+id/buttons"
+        android:horizontalSpacing="6dp"
+        android:verticalSpacing="6dp"
         android:layoutAnimation="@anim/list_controller"
         android:numColumns="3"
         ></GridView>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/player"
+        android:background="#ffe03e7d">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Player's Likes"
+            android:textColor="#ffffffff"
+            android:textSize="11sp"
+            android:padding="5dp"/>
+
+    </RelativeLayout>
 
     <LinearLayout
         android:id="@+id/buttons"

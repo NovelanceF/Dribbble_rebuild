@@ -3,7 +3,6 @@ package nl.lance.dribbb.shots.fragment;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +14,7 @@ import android.widget.TextView;
 import net.frakbot.imageviewex.ImageViewNext;
 
 import nl.lance.dribbb.R;
-import nl.lance.dribbb.adapter.ContentShotsAdapter;
+import nl.lance.dribbb.adapter.DetailAdapter;
 import nl.lance.dribbb.network.DribbbleAPI;
 import nl.lance.dribbb.network.ShotsData;
 import nl.lance.dribbb.views.FooterState;
@@ -42,9 +41,8 @@ public class ShotDetailFragment extends Fragment {
 
   private void initMoreShots(View view) {
     GridView gridView = (GridView)view.findViewById(R.id.more_shots);
-    ContentShotsAdapter adapter = new ContentShotsAdapter(getActivity(), data.getList(), 1);
+    DetailAdapter adapter = new DetailAdapter(getActivity(), data.getList(), 2);
     data.getShotsRefresh(DribbbleAPI.getuserLikesUel(getActivity().getIntent().getExtras().getString("player_username")) + "1", adapter, new FooterState());
-    Log.i("ReboundURL", DribbbleAPI.getuserLikesUel(getActivity().getIntent().getExtras().getString("player_username")));
     gridView.setAdapter(adapter);
   }
 
