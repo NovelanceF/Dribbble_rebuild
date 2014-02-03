@@ -18,7 +18,7 @@ public class PlayerActivity extends SwipeBackActivity {
     setContentView(R.layout.activity_player);
 
     getSupportFragmentManager().beginTransaction()
-            .replace(R.id.player_container, new PlayerFragment()).commit();
+            .replace(R.id.player_container, new PlayerFragment(PlayerActivity.this)).commit();
 
     setActionBarStyle();
   }

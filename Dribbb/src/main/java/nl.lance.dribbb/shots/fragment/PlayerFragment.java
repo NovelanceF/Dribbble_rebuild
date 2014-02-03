@@ -1,5 +1,6 @@
 package nl.lance.dribbb.shots.fragment;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -7,8 +8,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.widget.FrameLayout;
+import android.widget.TextView;
+
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.ImageLoader;
+import com.android.volley.toolbox.NetworkImageView;
+import com.android.volley.toolbox.Volley;
 
 import nl.lance.dribbb.R;
+import nl.lance.dribbb.network.BitmapLruCache;
 import nl.lance.dribbb.views.ObservableScrollView;
 
 /**
@@ -19,11 +27,19 @@ public class PlayerFragment extends Fragment implements ObservableScrollView.Cal
   private ObservableScrollView scrollView;
   private FrameLayout mStickyView;
   private View mPlaceholderView;
+  private ImageLoader mImageLoader;
+
+  public PlayerFragment(Activity a) {
+    RequestQueue mRequestQueue = Volley.newRequestQueue(a);
+    mImageLoader = new ImageLoader(mRequestQueue, new BitmapLruCache());
+  }
 
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
     ViewGroup rootView = (ViewGroup) inflater
             .inflate(R.layout.fragment_player, container, false);
+
+    initPlayerInfo(rootView);
 
     scrollView = (ObservableScrollView) rootView.findViewById(R.id.scroll_view);
     scrollView.setCallbacks(this);
@@ -41,6 +57,23 @@ public class PlayerFragment extends Fragment implements ObservableScrollView.Cal
     );
 
     return rootView;
+  }
+
+  private void initPlayerInfo(ViewGroup view) {
+    TextView name = (TextView)view.findViewById(R.id.player_name);
+    TextView likes = (TextView)view.findViewById(R.id.player_likes_count);
+    TextView follow = (TextView)view.findViewById(R.id.player_ff);
+    NetworkImageView avatar = (NetworkImageView)view.findViewById(R.id.player_avatar);
+
+    Bundle bundle = getActivity().getIntent().getExtras();
+    avatar.setImageUrl(bundle.getString("avatar_url"), mImageLoader);
+    name.setText(bundle.getString("name"));
+    String likesAndLiked = bundle.getString("likes_count") + " Likes, and "
+            + bundle.getString("likes_received_count") + " Likes received.";
+    likes.setText(likesAndLiked);
+    String followingAndFollowers = bundle.getString("following_count") + " Following, and "
+            + bundle.getString("followers_count") + " followers.";
+    follow.setText(followingAndFollowers);
   }
 
   @Override

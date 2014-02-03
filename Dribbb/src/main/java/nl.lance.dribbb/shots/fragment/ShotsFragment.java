@@ -49,18 +49,11 @@ public class ShotsFragment extends Fragment {
         Intent intent = new Intent(getActivity(), ShotsDetail.class);
         Bundle bundle = new Bundle();
 
-        //shots
-        bundle.putString("id", data.getList().get(position).get("id").toString());
-        bundle.putString("title", data.getList().get(position).get("title").toString());
-        bundle.putString("image_url", data.getList().get(position).get("image_url").toString());
-        bundle.putString("views_count", data.getList().get(position).get("views_count").toString());
-        bundle.putString("likes_count", data.getList().get(position).get("likes_count").toString());
-        bundle.putString("comments_count", data.getList().get(position).get("comments_count").toString());
+        String tags[] = DribbbleAPI.tagBundleShots;
 
-        //players
-        bundle.putString("player_username", data.getList().get(position).get("username").toString());
-        bundle.putString("player_name", data.getList().get(position).get("player_name").toString());
-        bundle.putString("player_avatar_url", data.getList().get(position).get("player_avatar_url").toString());
+        for (int i = 0; i < tags.length; i++) {
+          bundle.putString(tags[i], data.getList().get(position).get(tags[i]).toString());
+        }
 
         intent.putExtras(bundle);
         getActivity().startActivity(intent);

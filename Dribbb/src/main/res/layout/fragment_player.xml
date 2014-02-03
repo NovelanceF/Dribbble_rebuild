@@ -107,7 +107,7 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/shotslabel"
+                android:id="@+id/shots_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"

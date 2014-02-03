@@ -109,22 +109,22 @@ public class ShotsData {
     int respond_count = jsonObject.getInt("per_page");
     int totalPages = jsonObject.getInt("page");
     JSONArray array = jsonObject.getJSONArray("shots");
+
+    String tagsShots[] = DribbbleAPI.tagsShots;
+    String tagsPlayer[] = DribbbleAPI.tagPlayer;
+
     for (int i = 0; i < respond_count; i++) {
       Map<String, Object> map = new HashMap<String, Object>();
 
-      //shots
-      map.put("id", array.getJSONObject(i).getString("id"));
-      map.put("title", array.getJSONObject(i).getString("title"));
-      map.put("image_url", array.getJSONObject(i).getString("image_url"));
-      map.put("image_teaser_url", array.getJSONObject(i).getString("image_teaser_url"));
-      map.put("views_count", array.getJSONObject(i).getString("views_count"));
-      map.put("likes_count", array.getJSONObject(i).getString("likes_count"));
-      map.put("comments_count", array.getJSONObject(i).getString("comments_count"));
+      JSONObject shotsObject = array.getJSONObject(i);
+      for(int j = 0; j < tagsShots.length; j++) {
+        map.put(tagsShots[j], shotsObject.getString(tagsShots[j]));
+      }
 
-      //player
-      map.put("username",array.getJSONObject(i).getJSONObject("player").getString("username") );
-      map.put("player_name", array.getJSONObject(i).getJSONObject("player").getString("name"));
-      map.put("player_avatar_url", array.getJSONObject(i).getJSONObject("player").getString("avatar_url"));
+      JSONObject playerObject = array.getJSONObject(i).getJSONObject("player");
+      for(int j = 0; j < tagsPlayer.length; j++) {
+        map.put(tagsPlayer[j],playerObject.getString(tagsPlayer[j]));
+      }
       getList().add(map);
 
       if (respond_count * (totalPages - 1) + i + 1 == size) {

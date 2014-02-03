@@ -27,6 +27,7 @@ import nl.lance.dribbb.views.FooterState;
 public class ShotDetailFragment extends Fragment implements View.OnClickListener{
 
   ShotsData data;
+  Bundle bundle;
 
   public ShotDetailFragment(Activity a) {
     data = new ShotsData(a);
@@ -36,6 +37,7 @@ public class ShotDetailFragment extends Fragment implements View.OnClickListener
   public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
     View rootView = inflater.inflate(R.layout.fragment_shots_detail, container, false);
     ImageViewNext.setMaximumNumberOfThreads(200);
+    bundle = getActivity().getIntent().getExtras();
     initShotDetail(rootView);
     initMoreShots(rootView);
     return rootView;
@@ -44,13 +46,11 @@ public class ShotDetailFragment extends Fragment implements View.OnClickListener
   private void initMoreShots(View view) {
     GridView gridView = (GridView)view.findViewById(R.id.more_shots);
     DetailAdapter adapter = new DetailAdapter(getActivity(), data.getList(), 2);
-    data.getShotsRefresh(DribbbleAPI.getuserLikesUel(getActivity().getIntent().getExtras().getString("player_username")) + "1", adapter, new FooterState());
+    data.getShotsRefresh(DribbbleAPI.getuserLikesUel(getActivity().getIntent().getExtras().getString("username")) + "1", adapter, new FooterState());
     gridView.setAdapter(adapter);
   }
 
   private void initShotDetail(View view) {
-
-    Bundle bundle = getActivity().getIntent().getExtras();
 
     ImageViewNext playerAvatar = (ImageViewNext)view.findViewById(R.id.detail_avatar);
     playerAvatar.setOnClickListener(this);
@@ -65,10 +65,10 @@ public class ShotDetailFragment extends Fragment implements View.OnClickListener
     TextView likes = (TextView)view.findViewById(R.id.detail_likes);
     TextView comments = (TextView)view.findViewById(R.id.detail_commentss);
 
-    playerAvatar.setUrl(bundle.getString("player_avatar_url"));
+    playerAvatar.setUrl(bundle.getString("avatar_url"));
     detailimage.setUrl(bundle.getString("image_url"));
     title.setText(bundle.getString("title"));
-    player.setText(bundle.getString("player_name"));
+    player.setText(bundle.getString("name"));
     views.setText(bundle.getString("views_count"));
     likes.setText(bundle.getString("likes_count"));
     comments.setText(bundle.getString("comments_count"));
@@ -87,6 +87,15 @@ public class ShotDetailFragment extends Fragment implements View.OnClickListener
   @Override
   public void onClick(View v) {
     Intent intent = new Intent(getActivity(), PlayerActivity.class);
+    Bundle playerBundle = new Bundle();
+
+    String tags[] = DribbbleAPI.tagBundlePlayerInfo;
+
+    for (int i = 0; i < tags.length; i ++ ) {
+      playerBundle.putString(tags[i], bundle.getString(tags[i]));
+    }
+
+    intent.putExtras(playerBundle);
     getActivity().startActivity(intent);
     getActivity().overridePendingTransition(R.anim.abc_fade_in, R.anim.abc_fade_out);
   }
