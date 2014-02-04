@@ -31,13 +31,20 @@ import nl.lance.dribbb.views.ScrollGridView;
 public class PlayerFragment extends Fragment implements ObservableScrollView.Callbacks, ObservableScrollView.ScrollViewListener {
 
   private FrameLayout mStickyView;
+
   private View mPlaceholderView;
+
   private ImageLoader mImageLoader;
+
   private ShotsData data;
+
   private FooterState state = new FooterState();
+
   private PlayersAdapter adapter;
+
   private static int page = 1;
-  RelativeLayout progressView;
+
+  private RelativeLayout progressView;
 
   public PlayerFragment(Activity a) {
     data = new ShotsData(a);

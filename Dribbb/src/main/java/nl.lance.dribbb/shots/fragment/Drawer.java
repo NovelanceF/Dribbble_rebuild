@@ -17,15 +17,12 @@ import android.widget.EditText;
 import android.widget.ListView;
 
 import nl.lance.dribbb.R;
-
 import nl.lance.dribbb.activites.UActivity;
 import nl.lance.dribbb.adapter.DrawerAdapter;
 import nl.lance.dribbb.network.PlayerData;
-import nl.lance.dribbb.views.ConnectDialog;
 
 public class Drawer extends Fragment {
-  
-  private ConnectDialog c;
+
   private DrawerAdapter adapter;
   private PlayerData data;
   private Activity mActivity;
