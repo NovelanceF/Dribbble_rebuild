@@ -17,6 +17,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 
 import nl.lance.dribbb.R;
+import nl.lance.dribbb.activites.ChoiceActivity;
 import nl.lance.dribbb.activites.UActivity;
 import nl.lance.dribbb.adapter.DrawerAdapter;
 import nl.lance.dribbb.network.PlayerData;
@@ -62,6 +63,9 @@ public class Drawer extends Fragment {
             intent.putExtras(bundle);
             getActivity().startActivity(intent);
           }
+        } else if (arg2 == 3) {
+          Intent intent2 = new Intent(getActivity(), ChoiceActivity.class);
+          getActivity().startActivity(intent2);
         }
         getActivity().overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
       }

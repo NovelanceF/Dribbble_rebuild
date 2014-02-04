@@ -73,11 +73,11 @@ public class DrawerAdapter extends BaseAdapter {
       if(userInfo.getString("avatar_url", "") == "") {
         //holder.userAvatar.setImageResource(R.drawable.player_unconnected);
       } else {
-        holder.userAvatar.setImageUrl(userInfo.getString("avatar_url", "").toString(), mImageLoader);
+        holder.userAvatar.setImageUrl(userInfo.getString("avatar_url", ""), mImageLoader);
       }
-      holder.userInfo1.setText(userInfo.getString("name", "Tap to connect").toString());
+      holder.userInfo1.setText(userInfo.getString("name", "Tap to connect"));
       holder.userInfo1.setTypeface(typeface);
-      String userInfo2 = userInfo.getString("Followings", "to your Dribbble account").toString() + userInfo.getString("likesReceived", "").toString();
+      String userInfo2 = userInfo.getString("Followings", "to your Dribbble account") + userInfo.getString("likesReceived", "");
       holder.userInfo2.setText(userInfo2);
       holder.userInfo2.setTypeface(typeface);
       
@@ -92,7 +92,7 @@ public class DrawerAdapter extends BaseAdapter {
         holder = (Holder2)convertView.getTag();
       }
       
-      if(userInfo.getString("avatar_url", "null").equals("null") && position != 3) {
+      if(userInfo.getString("avatar_url", "null").equals("null") && position != 3 && position != 4) {
         holder.itemText.setTextColor(0xFF454545);
       } else {
         holder.itemText.setTextColor(0xFFdfdfdf);

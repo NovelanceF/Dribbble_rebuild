@@ -11,5 +11,7 @@
     <string name="title_activity_player">PlayerActivity</string>
     <string name="title_activity_u">UActivity</string>
     <string name="title_activity_shots_detail">ShotsDetail</string>
+    <string name="title_activity_choice">ChoiceActivity</string>
+    <string name="title_activity_d">DActivity</string>
 
 </resources>

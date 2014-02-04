@@ -1,0 +1,85 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:background="#ffdfdfdf"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#ffe23176"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="4dp"
+                android:text="Local"
+                android:textColor="#fff"
+                android:layout_weight="1"
+                android:textSize="20sp"/>
+
+            </LinearLayout>
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="1px"
+            android:layout_marginTop="45dp"
+            android:background="#ff999999"
+            android:layout_marginLeft="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="6dp"
+            android:layout_marginTop="30dp"
+            android:text="Collections"/>
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="1px"
+            android:background="#ff999999"
+            android:layout_marginTop="45dp"/>
+        </LinearLayout>
+
+    <Button
+        android:id="@+id/choice_shots"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffdfdfdf"
+        android:text="Shots"
+        android:textSize="36sp"
+        android:textColor="#ffe23176"
+        android:layout_weight="20"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#ff999999"></LinearLayout>
+
+    <Button
+        android:id="@+id/choice_player"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffdfdfdf"
+        android:text="Player"
+        android:textSize="36sp"
+        android:textColor="#ffe23176"
+        android:layout_weight="20"/>
+    </LinearLayout>

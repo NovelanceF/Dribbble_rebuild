@@ -48,6 +48,10 @@ public class PlayerData {
     map = new HashMap<String, Object>();
     map.put("drawer_items", "Likes");
     drawerList.add(map);
+
+    map = new HashMap<String, Object>();
+    map.put("drawer_items", "Collections");
+    drawerList.add(map);
     
     map = new HashMap<String, Object>();
     map.put("drawer_items", "About");
