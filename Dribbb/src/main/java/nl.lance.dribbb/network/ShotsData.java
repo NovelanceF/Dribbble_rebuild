@@ -63,8 +63,8 @@ public class ShotsData {
               @Override
               public void onResponse(JSONObject arg0) {
                 try {
-                  initShotsList(arg0);
                   f.setState(FooterState.State.Idle);
+                  initShotsList(arg0, f);
                   adapter.notifyDataSetChanged();
                 } catch (JSONException e) {
                   e.printStackTrace();
@@ -105,10 +105,11 @@ public class ShotsData {
     mRequestQueue.add(jsonObjectRequest);
   }
 
-  private void initShotsList(JSONObject jsonObject) throws JSONException {
+  private void initShotsList(JSONObject jsonObject, FooterState f) throws JSONException {
     int respond_count = jsonObject.getInt("per_page");
     int totalPages = jsonObject.getInt("page");
     JSONArray array = jsonObject.getJSONArray("shots");
+    size = jsonObject.getInt("total");
 
     String tagsShots[] = DribbbleAPI.tagsShots;
     String tagsPlayer[] = DribbbleAPI.tagPlayer;
@@ -132,10 +133,10 @@ public class ShotsData {
       getList().add(map);
 
       if (respond_count * (totalPages - 1) + i + 1 == size) {
+        f.setState(FooterState.State.TheEnd);
         break;
       }
     }
-    size = jsonObject.getInt("total");
   }
 
   private void initCommentsList(JSONObject jsonObject) throws JSONException {

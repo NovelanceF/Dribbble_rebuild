@@ -3,12 +3,12 @@ package nl.lance.dribbb.shots.fragment;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.widget.FrameLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.android.volley.RequestQueue;
@@ -37,6 +37,7 @@ public class PlayerFragment extends Fragment implements ObservableScrollView.Cal
   private FooterState state = new FooterState();
   private PlayersAdapter adapter;
   private static int page = 1;
+  RelativeLayout progressView;
 
   public PlayerFragment(Activity a) {
     data = new ShotsData(a);
@@ -77,6 +78,7 @@ public class PlayerFragment extends Fragment implements ObservableScrollView.Cal
     TextView likes = (TextView)view.findViewById(R.id.player_likes_count);
     TextView follow = (TextView)view.findViewById(R.id.player_ff);
     NetworkImageView avatar = (NetworkImageView)view.findViewById(R.id.player_avatar);
+    progressView = (RelativeLayout)view.findViewById(R.id.progress_bar);
 
     Bundle bundle = getActivity().getIntent().getExtras();
     avatar.setImageUrl(bundle.getString("avatar_url"), mImageLoader);
@@ -92,9 +94,7 @@ public class PlayerFragment extends Fragment implements ObservableScrollView.Cal
   private void initGridView(ViewGroup view) {
     ScrollGridView gridView = (ScrollGridView)view.findViewById(R.id.player_more_shots);
     adapter = new PlayersAdapter(getActivity(), data.getList(), 0);
-    Log.i("URL", DribbbleAPI.getPlayersShotUrl(getActivity().getIntent().getExtras().getString("username")));
-    data.getShotsRefresh(DribbbleAPI.getPlayersShotUrl(getActivity().getIntent().getExtras().getString("username")) + page,
-            adapter, new FooterState());
+    shotsLoading(page);
     gridView.setAdapter(adapter);
   }
 
@@ -117,13 +117,24 @@ public class PlayerFragment extends Fragment implements ObservableScrollView.Cal
   public void onScrollChanged(ObservableScrollView scrollView, int x, int y, int oldx, int oldy) {
     View view = (View) scrollView.getChildAt(scrollView.getChildCount() - 1);
     int diff = (view.getBottom() - (scrollView.getHeight() + scrollView.getScrollY()));
-
     if (diff == 0 && state.getState() != FooterState.State.Loading && adapter.getCount() != 0) {
-      state.setState(FooterState.State.Loading);
-      data.getShotsRefresh(DribbbleAPI.getPlayersShotUrl(getActivity().getIntent().getExtras().getString("username")) + ++page,
-              adapter, state);
-      Log.i("ONSCROLL", "BBB");
+      shotsLoading(++ page);
+      if(adapter.getCount() == data.getSize()){
+        progressViewEnd();
+      }
     }
+  }
+
+  private void progressViewEnd() {
+    progressView.getChildAt(0).setVisibility(View.GONE);
+    TextView t = (TextView)progressView.getChildAt(1);
+    t.setText("The End");
+  }
+
+  private void shotsLoading(int page) {
+    state.setState(FooterState.State.Loading);
+    data.getShotsRefresh(DribbbleAPI.getPlayersShotUrl(getActivity().getIntent().getExtras().getString("username")) + page,
+            adapter, state);
   }
 
   @Override

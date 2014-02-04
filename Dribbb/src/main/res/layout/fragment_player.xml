@@ -87,16 +87,26 @@
             android:horizontalSpacing="7dp"
             android:numColumns="2"/>
 
-        <LinearLayout
+        <RelativeLayout
+            android:id="@+id/progress_bar"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="60dp"
             android:layout_below="@id/player_more_shots">
+
+            <ProgressBar
+                android:id="@+id/progress"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="40dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Loading"/>
-            </LinearLayout>
+                android:text="Loading"
+                android:textColor="#ff999999"
+                android:layout_centerInParent="true"/>
+            </RelativeLayout>
 
         <FrameLayout
             android:id="@+id/label_sticky"

@@ -9,6 +9,7 @@ public class FooterState {
   }
   
   public FooterState() {
+    this.mState = State.Idle;
   }
   
   public State getState() {

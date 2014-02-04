@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +13,6 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 
 import nl.lance.dribbb.R;
-
 import nl.lance.dribbb.activites.ShotsDetail;
 import nl.lance.dribbb.adapter.ContentShotsAdapter;
 import nl.lance.dribbb.network.DribbbleAPI;
@@ -41,7 +39,7 @@ public class ShotsFragment extends Fragment {
     View rootView = inflater.inflate(R.layout.fragment_shots, null);
     final GridView gridView = (GridView)rootView.findViewById(R.id.shots_grid);
     gridView.setAdapter(adapter);
-    initGridView(1);
+    initGridView(page);
 
     gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
       @Override
@@ -77,10 +75,7 @@ public class ShotsFragment extends Fragment {
           return;
         }
         if(firstVisibleItem + visibleItemCount == totalItemCount && totalItemCount != 0 && totalItemCount != 2 && adapter.getCount() > 0) {
-          footerState.setState(FooterState.State.Loading);
-          data.getShotsRefresh(currentUrl + getCurrentPage(), adapter, footerState);
-          adapter.notifyDataSetChanged();
-          Log.i("GRIDVIEW", "BOTTOM");
+          shotsLoading(getCurrentPage());
         }
       }
     });
@@ -89,7 +84,7 @@ public class ShotsFragment extends Fragment {
   }
   
   private void initGridView(int page) {
-    data.getShotsRefresh(currentUrl + page, adapter, footerState);
+    shotsLoading(page);
   }
   
   private int getCurrentPage(){
@@ -108,6 +103,11 @@ public class ShotsFragment extends Fragment {
   public void onStop() {
     page = pageDebut = pageEveryone = pagePopular = 1;
     super.onStop();
+  }
+
+  private void shotsLoading(int page) {
+    footerState.setState(FooterState.State.Loading);
+    data.getShotsRefresh(currentUrl + page, adapter, footerState);
   }
 
 }

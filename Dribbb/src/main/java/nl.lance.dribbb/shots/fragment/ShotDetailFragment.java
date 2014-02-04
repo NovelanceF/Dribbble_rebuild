@@ -26,8 +26,8 @@ import nl.lance.dribbb.views.FooterState;
  */
 public class ShotDetailFragment extends Fragment implements View.OnClickListener{
 
-  ShotsData data;
-  Bundle bundle;
+  private ShotsData data;
+  private Bundle bundle;
 
   public ShotDetailFragment(Activity a) {
     data = new ShotsData(a);
@@ -46,7 +46,7 @@ public class ShotDetailFragment extends Fragment implements View.OnClickListener
   private void initMoreShots(View view) {
     GridView gridView = (GridView)view.findViewById(R.id.more_shots);
     DetailAdapter adapter = new DetailAdapter(getActivity(), data.getList(), 2);
-    data.getShotsRefresh(DribbbleAPI.getuserLikesUel(getActivity().getIntent().getExtras().getString("username")) + "1", adapter, new FooterState());
+    shotsLoading(1, adapter);
     gridView.setAdapter(adapter);
   }
 
@@ -82,6 +82,10 @@ public class ShotDetailFragment extends Fragment implements View.OnClickListener
     params.width = display.getWidth();
     params.height = display.getWidth() * 3 / 4;
     v.setLayoutParams(params);
+  }
+
+  private void shotsLoading(int page, DetailAdapter adapter) {
+    data.getShotsRefresh(DribbbleAPI.getuserLikesUel(getActivity().getIntent().getExtras().getString("username")) + page, adapter, new FooterState());
   }
 
   @Override
