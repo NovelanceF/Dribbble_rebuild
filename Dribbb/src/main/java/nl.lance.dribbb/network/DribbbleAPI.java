@@ -40,7 +40,7 @@ public class DribbbleAPI {
   }
 
   public static  String getPlayersShotUrl (String username) {
-    return "http://api.dribbble.com/players/" + username + "/shots";
+    return "http://api.dribbble.com/players/" + username + "/shots/?page=";
   }
 
 }

@@ -28,13 +28,15 @@ import nl.lance.dribbb.views.ScrollGridView;
 /**
  * Created by Novelance on 2/3/14.
  */
-public class PlayerFragment extends Fragment implements ObservableScrollView.Callbacks{
+public class PlayerFragment extends Fragment implements ObservableScrollView.Callbacks, ObservableScrollView.ScrollViewListener {
 
-  private ObservableScrollView scrollView;
   private FrameLayout mStickyView;
   private View mPlaceholderView;
   private ImageLoader mImageLoader;
   private ShotsData data;
+  private FooterState state = new FooterState();
+  private PlayersAdapter adapter;
+  private static int page = 1;
 
   public PlayerFragment(Activity a) {
     data = new ShotsData(a);
@@ -50,7 +52,7 @@ public class PlayerFragment extends Fragment implements ObservableScrollView.Cal
     initPlayerInfo(rootView);
     initGridView(rootView);
 
-    scrollView = (ObservableScrollView) rootView.findViewById(R.id.scroll_view);
+    final ObservableScrollView scrollView = (ObservableScrollView) rootView.findViewById(R.id.scroll_view);
     scrollView.setCallbacks(this);
 
     mStickyView = (FrameLayout) rootView.findViewById(R.id.label_sticky);
@@ -64,6 +66,8 @@ public class PlayerFragment extends Fragment implements ObservableScrollView.Cal
               }
             }
     );
+
+    scrollView.setScrollViewListener(this);
 
     return rootView;
   }
@@ -87,9 +91,9 @@ public class PlayerFragment extends Fragment implements ObservableScrollView.Cal
 
   private void initGridView(ViewGroup view) {
     ScrollGridView gridView = (ScrollGridView)view.findViewById(R.id.player_more_shots);
-    PlayersAdapter adapter = new PlayersAdapter(getActivity(), data.getList(), 0);
+    adapter = new PlayersAdapter(getActivity(), data.getList(), 0);
     Log.i("URL", DribbbleAPI.getPlayersShotUrl(getActivity().getIntent().getExtras().getString("username")));
-    data.getShotsRefresh(DribbbleAPI.getPlayersShotUrl(getActivity().getIntent().getExtras().getString("username")),
+    data.getShotsRefresh(DribbbleAPI.getPlayersShotUrl(getActivity().getIntent().getExtras().getString("username")) + page,
             adapter, new FooterState());
     gridView.setAdapter(adapter);
   }
@@ -107,5 +111,24 @@ public class PlayerFragment extends Fragment implements ObservableScrollView.Cal
   @Override
   public void onUpOrCancelMotionEvent() {
 
+  }
+
+  @Override
+  public void onScrollChanged(ObservableScrollView scrollView, int x, int y, int oldx, int oldy) {
+    View view = (View) scrollView.getChildAt(scrollView.getChildCount() - 1);
+    int diff = (view.getBottom() - (scrollView.getHeight() + scrollView.getScrollY()));
+
+    if (diff == 0 && state.getState() != FooterState.State.Loading && adapter.getCount() != 0) {
+      state.setState(FooterState.State.Loading);
+      data.getShotsRefresh(DribbbleAPI.getPlayersShotUrl(getActivity().getIntent().getExtras().getString("username")) + ++page,
+              adapter, state);
+      Log.i("ONSCROLL", "BBB");
+    }
+  }
+
+  @Override
+  public void onStop() {
+    page = 1;
+    super.onStop();
   }
 }
