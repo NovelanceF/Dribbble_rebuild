@@ -17,6 +17,8 @@ import android.widget.Toast;
 import net.frakbot.imageviewex.ImageViewNext;
 import net.tsz.afinal.FinalDb;
 
+import java.util.List;
+
 import nl.lance.dribbb.R;
 import nl.lance.dribbb.activites.PlayerActivity;
 import nl.lance.dribbb.adapter.DetailAdapter;
@@ -28,7 +30,7 @@ import nl.lance.dribbb.views.FooterState;
 /**
  * Created by Novelance on 1/26/14.
  */
-public class ShotDetailFragment extends Fragment implements View.OnClickListener{
+public class ShotDetailFragment extends Fragment implements View.OnClickListener {
 
   private ShotsData data;
   private Bundle bundle;
@@ -48,7 +50,7 @@ public class ShotDetailFragment extends Fragment implements View.OnClickListener
   }
 
   private void initMoreShots(View view) {
-    GridView gridView = (GridView)view.findViewById(R.id.more_shots);
+    GridView gridView = (GridView) view.findViewById(R.id.more_shots);
     DetailAdapter adapter = new DetailAdapter(getActivity(), data.getList(), 2);
     shotsLoading(1, adapter);
     gridView.setAdapter(adapter);
@@ -56,20 +58,20 @@ public class ShotDetailFragment extends Fragment implements View.OnClickListener
 
   private void initShotDetail(View view) {
 
-    ImageViewNext playerAvatar = (ImageViewNext)view.findViewById(R.id.detail_avatar);
+    ImageViewNext playerAvatar = (ImageViewNext) view.findViewById(R.id.detail_avatar);
     playerAvatar.setOnClickListener(this);
-    ImageViewNext detailimage = (ImageViewNext)view.findViewById(R.id.detail_image);
+    ImageViewNext detailimage = (ImageViewNext) view.findViewById(R.id.detail_image);
 
     setImageParmas(detailimage);
 
-    TextView title = (TextView)view.findViewById(R.id.detail_title);
-    TextView player = (TextView)view.findViewById(R.id.detail_player);
+    TextView title = (TextView) view.findViewById(R.id.detail_title);
+    TextView player = (TextView) view.findViewById(R.id.detail_player);
     player.setOnClickListener(this);
-    TextView views = (TextView)view.findViewById(R.id.detail_views);
-    TextView likes = (TextView)view.findViewById(R.id.detail_likes);
-    TextView comments = (TextView)view.findViewById(R.id.detail_commentss);
+    TextView views = (TextView) view.findViewById(R.id.detail_views);
+    TextView likes = (TextView) view.findViewById(R.id.detail_likes);
+    TextView comments = (TextView) view.findViewById(R.id.detail_commentss);
 
-    ImageButton shotCollect = (ImageButton)view.findViewById(R.id.shot_collect);
+    ImageButton shotCollect = (ImageButton) view.findViewById(R.id.shot_collect);
     shotCollect.setOnClickListener(this);
 
     playerAvatar.setUrl(bundle.getString("avatar_url"));
@@ -80,7 +82,7 @@ public class ShotDetailFragment extends Fragment implements View.OnClickListener
     likes.setText(bundle.getString("likes_count"));
     comments.setText(bundle.getString("comments_count"));
 
-   }
+  }
 
   private void setImageParmas(ImageViewNext v) {
     ViewGroup.LayoutParams params = v.getLayoutParams();
@@ -97,14 +99,16 @@ public class ShotDetailFragment extends Fragment implements View.OnClickListener
 
   @Override
   public void onClick(View v) {
-    switch (v.getId()){
+    switch (v.getId()) {
       case R.id.detail_avatar:
       case R.id.detail_player: {
         toPlayerPage();
-      } break;
-      case  R.id.shot_collect: {
+      }
+      break;
+      case R.id.shot_collect: {
         collectShot();
-      } break;
+      }
+      break;
     }
   }
 
@@ -114,10 +118,10 @@ public class ShotDetailFragment extends Fragment implements View.OnClickListener
 
     String tags[] = DribbbleAPI.tagBundlePlayerInfo;
 
-    for (int i = 0; i < tags.length; i ++ ) {
+    for (int i = 0; i < tags.length; i++) {
       playerBundle.putString(tags[i], bundle.getString(tags[i]));
-      if(i == 3) {
-        playerBundle.putString("player_"+tags[i], bundle.getString("player_"+tags[i]));
+      if (i == 3) {
+        playerBundle.putString("player_" + tags[i], bundle.getString("player_" + tags[i]));
       }
     }
 
@@ -128,24 +132,44 @@ public class ShotDetailFragment extends Fragment implements View.OnClickListener
 
   private void collectShot() {
     FinalDb db = FinalDb.create(getActivity());
-    Shots shots = new Shots();
-    shots.setAvatarUrl(bundle.getString("avatar_url"));
-    shots.setCommentsCount(bundle.getString("comments_count"));
-    shots.setFollowersCount(bundle.getString("followers_count"));
-    shots.setFollowingCount(bundle.getString("following_count"));
-    shots.setImageUrl(bundle.getString("image_url"));
-    shots.setLikesCount(bundle.getString("likes_count"));
-    shots.setLikesReceivdCount(bundle.getString("likes_received_count"));
-    shots.setName(bundle.getString("name"));
-    shots.setPlayerLikesCount(bundle.getString("player_likes_count"));
-    shots.setShotsId(bundle.getString("id"));
-    shots.setTitle(bundle.getString("title"));
-    shots.setUsername(bundle.getString("username"));
-    shots.setImageUrl(bundle.getString("image_url"));
-    shots.setViewsCount(bundle.getString("views_count"));
+    List<Shots> list = db.findAll(Shots.class);
 
-    Toast.makeText(getActivity(), "Shots Collected", 2000).show();
+    if (!isExisted(bundle.getString("id"), list)) {
+      Shots shots = new Shots();
+      shots.setAvatarUrl(bundle.getString("avatar_url"));
+      shots.setCommentsCount(bundle.getString("comments_count"));
+      shots.setFollowersCount(bundle.getString("followers_count"));
+      shots.setFollowingCount(bundle.getString("following_count"));
+      shots.setImageUrl(bundle.getString("image_url"));
+      shots.setLikesCount(bundle.getString("likes_count"));
+      shots.setLikesReceivdCount(bundle.getString("likes_received_count"));
+      shots.setName(bundle.getString("name"));
+      shots.setPlayerLikesCount(bundle.getString("player_likes_count"));
+      shots.setShotsId(bundle.getString("id"));
+      shots.setTitle(bundle.getString("title"));
+      shots.setUsername(bundle.getString("username"));
+      shots.setImageUrl(bundle.getString("image_url"));
+      shots.setViewsCount(bundle.getString("views_count"));
 
-    db.save(shots);
+      Toast.makeText(getActivity(), "Shots Collected", 2000).show();
+
+      db.save(shots);
+    } else {
+      Toast.makeText(getActivity(), "Already Collected", 2000).show();
+    }
+  }
+
+  private boolean isExisted(String s, List<Shots> list) {
+    int i;
+    for (i = 0; i < list.size(); i++) {
+      if (list.get(i).getShotsId().equals(s)) {
+        break;
+      }
+    }
+    if (i == list.size()) {
+      return false;
+    } else {
+      return true;
+    }
   }
 }

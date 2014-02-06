@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:descendantFocusability="blocksDescendants" >
+
+    <RelativeLayout
+        android:id="@+id/back"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="#ff383838"
+        android:tag="back" >
+
+        <ImageButton
+            android:id="@+id/player_collect_delete"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="10dp"
+            android:background="#00ffffff"
+            android:scaleType="centerInside"
+            android:src="@drawable/delete" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/front"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="#ffffffff"
+        android:orientation="vertical"
+        android:tag="front" >
+
+        <com.android.volley.toolbox.NetworkImageView
+            android:id="@+id/player_collect_avatar"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:padding="1dp"
+            android:background="#ffa4a4a4"
+            android:layout_centerVertical="true"
+            android:layout_margin="10dp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" 
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/player_collect_avatar"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/player_collect_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="24sp"
+                android:textColor="#ffe23176"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/player_collect_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#ff757575"
+                android:text="TextView" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</FrameLayout>

@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:descendantFocusability="blocksDescendants" >
+    android:layout_height="fill_parent" >
 
     <RelativeLayout
         android:id="@+id/back"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:background="#ff383838"
-        android:tag="back" >
+        android:tag="back">
 
         <ImageButton
             android:id="@+id/collect_shot_delete"
@@ -30,7 +29,8 @@
         android:orientation="vertical"
         android:paddingBottom="2dp"
         android:paddingTop="2dp"
-        android:tag="front" >
+        android:tag="front"
+        android:descendantFocusability="blocksDescendants">
 
         <TextView
             android:id="@+id/collet_label"
