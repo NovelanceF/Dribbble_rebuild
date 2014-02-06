@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Gradle: afinal_0.5_bin">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Dribbb/lib/afinal_0.5_bin.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
