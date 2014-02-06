@@ -191,7 +191,7 @@
             android:background="#ffde6594"/>
 
         <ImageButton
-            android:id="@+id/collect"
+            android:id="@+id/shot_collect"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"

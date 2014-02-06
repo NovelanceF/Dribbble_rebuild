@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:descendantFocusability="blocksDescendants" >
+
+    <RelativeLayout
+        android:id="@+id/back"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="#ff383838"
+        android:tag="back" >
+
+        <ImageButton
+            android:id="@+id/collect_shot_delete"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="#00ffffff"
+            android:layout_margin="50dp"
+            android:src="@drawable/delete" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/front"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffffff"
+        android:orientation="vertical"
+        android:paddingBottom="2dp"
+        android:paddingTop="2dp"
+        android:tag="front" >
+
+        <TextView
+            android:id="@+id/collet_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="14dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="4dp"
+            android:text="Collected shots"
+            android:textColor="#ffe23176"
+            android:textSize="36sp"
+            android:visibility="gone" />
+
+        <com.android.volley.toolbox.NetworkImageView
+            android:id="@+id/collect_shot_image"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_below="@+id/collet_label"
+            android:background="#ffdedede"
+            android:scaleType="centerCrop" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/collect_shot_image"
+            android:layout_marginBottom="18dp"
+            android:background="#66000000"
+            android:orientation="vertical"
+            android:padding="10dp" >
+
+            <TextView
+                android:id="@+id/collect_shot_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:textColor="#ffffffff"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/collect_shot_player"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:textColor="#ffdfdfdf"
+                android:textSize="13sp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</FrameLayout>

@@ -10,13 +10,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.GridView;
+import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import net.frakbot.imageviewex.ImageViewNext;
+import net.tsz.afinal.FinalDb;
 
 import nl.lance.dribbb.R;
 import nl.lance.dribbb.activites.PlayerActivity;
 import nl.lance.dribbb.adapter.DetailAdapter;
+import nl.lance.dribbb.models.Shots;
 import nl.lance.dribbb.network.DribbbleAPI;
 import nl.lance.dribbb.network.ShotsData;
 import nl.lance.dribbb.views.FooterState;
@@ -65,6 +69,9 @@ public class ShotDetailFragment extends Fragment implements View.OnClickListener
     TextView likes = (TextView)view.findViewById(R.id.detail_likes);
     TextView comments = (TextView)view.findViewById(R.id.detail_commentss);
 
+    ImageButton shotCollect = (ImageButton)view.findViewById(R.id.shot_collect);
+    shotCollect.setOnClickListener(this);
+
     playerAvatar.setUrl(bundle.getString("avatar_url"));
     detailimage.setUrl(bundle.getString("image_url"));
     title.setText(bundle.getString("title"));
@@ -90,6 +97,18 @@ public class ShotDetailFragment extends Fragment implements View.OnClickListener
 
   @Override
   public void onClick(View v) {
+    switch (v.getId()){
+      case R.id.detail_avatar:
+      case R.id.detail_player: {
+        toPlayerPage();
+      } break;
+      case  R.id.shot_collect: {
+        collectShot();
+      } break;
+    }
+  }
+
+  private void toPlayerPage() {
     Intent intent = new Intent(getActivity(), PlayerActivity.class);
     Bundle playerBundle = new Bundle();
 
@@ -105,5 +124,28 @@ public class ShotDetailFragment extends Fragment implements View.OnClickListener
     intent.putExtras(playerBundle);
     getActivity().startActivity(intent);
     getActivity().overridePendingTransition(R.anim.abc_fade_in, R.anim.abc_fade_out);
+  }
+
+  private void collectShot() {
+    FinalDb db = FinalDb.create(getActivity());
+    Shots shots = new Shots();
+    shots.setAvatarUrl(bundle.getString("avatar_url"));
+    shots.setCommentsCount(bundle.getString("comments_count"));
+    shots.setFollowersCount(bundle.getString("followers_count"));
+    shots.setFollowingCount(bundle.getString("following_count"));
+    shots.setImageUrl(bundle.getString("image_url"));
+    shots.setLikesCount(bundle.getString("likes_count"));
+    shots.setLikesReceivdCount(bundle.getString("likes_received_count"));
+    shots.setName(bundle.getString("name"));
+    shots.setPlayerLikesCount(bundle.getString("player_likes_count"));
+    shots.setShotsId(bundle.getString("id"));
+    shots.setTitle(bundle.getString("title"));
+    shots.setUsername(bundle.getString("username"));
+    shots.setImageUrl(bundle.getString("image_url"));
+    shots.setViewsCount(bundle.getString("views_count"));
+
+    Toast.makeText(getActivity(), "Shots Collected", 2000).show();
+
+    db.save(shots);
   }
 }

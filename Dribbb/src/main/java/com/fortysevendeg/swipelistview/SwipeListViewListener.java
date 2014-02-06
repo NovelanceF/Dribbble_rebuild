@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-package com.fortysevenfeg.swipelistview;
+package com.fortysevendeg.swipelistview;
 
 /**
  * Listener to get callback notifications for the SwipeListView

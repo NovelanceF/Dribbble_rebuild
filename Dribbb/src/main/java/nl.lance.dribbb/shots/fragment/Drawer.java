@@ -63,7 +63,8 @@ public class Drawer extends Fragment {
             intent.putExtras(bundle);
             getActivity().startActivity(intent);
           }
-        } else if (arg2 == 3) {
+        }
+        if (arg2 == 3) {
           Intent intent2 = new Intent(getActivity(), ChoiceActivity.class);
           getActivity().startActivity(intent2);
         }
