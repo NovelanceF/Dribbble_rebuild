@@ -26,21 +26,20 @@ public class Drawer extends Fragment {
 
   private DrawerAdapter adapter;
   private PlayerData data;
-  private Activity mActivity;
   private SharedPreferences userInfo;
   
-  public Drawer(Activity a) {
-    mActivity = a;
-    userInfo = a.getSharedPreferences("user_info", Context.MODE_PRIVATE);
+  public Drawer() {
   }
   
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
     View rootView = inflater.inflate(R.layout.fragment_drawer, container, false);
     ListView listView = (ListView)rootView.findViewById(R.id.drawer_list);
+
+    userInfo = getActivity().getSharedPreferences("user_info", Context.MODE_PRIVATE);
     data = new PlayerData(getActivity());
     
-    adapter = new DrawerAdapter(mActivity, data.getDrawerList());
+    adapter = new DrawerAdapter(getActivity(), data.getDrawerList());
     listView.setAdapter(adapter);
     
     listView.setOnItemClickListener(new OnItemClickListener() {
@@ -68,9 +67,9 @@ public class Drawer extends Fragment {
           Intent intent2 = new Intent(getActivity(), ChoiceActivity.class);
           getActivity().startActivity(intent2);
         }
-        getActivity().overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+        getActivity().overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
       }
-    });;
+    });
     return rootView;
   }
   

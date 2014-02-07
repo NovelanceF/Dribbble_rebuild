@@ -1,24 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
+             android:layout_width="fill_parent"
+             android:layout_height="fill_parent">
 
     <RelativeLayout
         android:id="@+id/back"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:background="#ff383838"
+        android:background="#ffe1e1e1"
         android:tag="back">
 
-        <ImageButton
-            android:id="@+id/collect_shot_delete"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+        <RelativeLayout
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:background="#00ffffff"
-            android:layout_margin="50dp"
-            android:src="@drawable/delete" />
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/collect_shot_delete"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:background="#00ffffff"
+                android:scaleType="centerInside"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="20dp"
+                android:src="@drawable/delete"
+                android:alpha="0.65"/>
+
+            <TextView
+                android:id="@+id/shot_delete_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tap to \nDelete"
+                android:layout_below="@id/collect_shot_delete"
+                android:layout_centerHorizontal="true"
+                android:textColor="#ff999999"/>
+
+        </RelativeLayout>
     </RelativeLayout>
 
     <RelativeLayout
@@ -29,8 +48,7 @@
         android:orientation="vertical"
         android:paddingBottom="2dp"
         android:paddingTop="2dp"
-        android:tag="front"
-        android:descendantFocusability="blocksDescendants">
+        android:tag="front">
 
         <TextView
             android:id="@+id/collet_label"
@@ -42,7 +60,7 @@
             android:text="Collected shots"
             android:textColor="#ffe23176"
             android:textSize="36sp"
-            android:visibility="gone" />
+            android:visibility="gone"/>
 
         <com.android.volley.toolbox.NetworkImageView
             android:id="@+id/collect_shot_image"
@@ -50,7 +68,7 @@
             android:layout_height="200dp"
             android:layout_below="@+id/collet_label"
             android:background="#ffdedede"
-            android:scaleType="centerCrop" />
+            android:scaleType="centerCrop"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -59,7 +77,7 @@
             android:layout_marginBottom="18dp"
             android:background="#66000000"
             android:orientation="vertical"
-            android:padding="10dp" >
+            android:padding="10dp">
 
             <TextView
                 android:id="@+id/collect_shot_title"
@@ -67,7 +85,7 @@
                 android:layout_height="wrap_content"
                 android:text="TextView"
                 android:textColor="#ffffffff"
-                android:textSize="18sp" />
+                android:textSize="18sp"/>
 
             <TextView
                 android:id="@+id/collect_shot_player"
@@ -75,7 +93,7 @@
                 android:layout_height="wrap_content"
                 android:text="TextView"
                 android:textColor="#ffdfdfdf"
-                android:textSize="13sp" />
+                android:textSize="13sp"/>
         </LinearLayout>
     </RelativeLayout>
 

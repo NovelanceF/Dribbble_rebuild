@@ -34,7 +34,7 @@
     <item name="android:windowIsTranslucent">true</item>
     </style>
 
-    <style name="ChoiceTheme" parent="android:Theme.Holo.Light.NoActionBar.Fullscreen">
+    <style name="ChoiceTheme" parent="android:Theme.Holo.Light.NoActionBar">
         <item name="android:windowIsTranslucent">true</item>
     </style>
 

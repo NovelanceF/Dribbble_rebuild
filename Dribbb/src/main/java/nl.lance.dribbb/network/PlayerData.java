@@ -36,7 +36,7 @@ public class PlayerData {
   
   public List<Map<String, Object>> getDrawerList() {
     Map<String, Object> map = new HashMap<String, Object>();
-    map.put("user_avatar", R.drawable.player_unconnected);
+    map.put("user_avatar", R.drawable.ic_action);
     map.put("user_info1", userInfo.getString("name", "Tap to connect"));
     map.put("user_info2", userInfo.getString("Followings", "to your dribbble account"));
     drawerList.add(map);

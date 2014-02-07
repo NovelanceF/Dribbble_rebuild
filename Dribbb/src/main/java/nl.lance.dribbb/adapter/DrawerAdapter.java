@@ -71,7 +71,7 @@ public class DrawerAdapter extends BaseAdapter {
       }
       
       if(userInfo.getString("avatar_url", "") == "") {
-        //holder.userAvatar.setImageResource(R.drawable.player_unconnected);
+
       } else {
         holder.userAvatar.setImageUrl(userInfo.getString("avatar_url", ""), mImageLoader);
       }

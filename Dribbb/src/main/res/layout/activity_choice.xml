@@ -31,6 +31,7 @@
                 android:layout_height="wrap_content"
                 android:padding="4dp"
                 android:text="Local"
+                android:textStyle="bold"
                 android:textColor="#fff"
                 android:layout_weight="1"
                 android:textSize="20sp"/>
@@ -45,10 +46,12 @@
             android:layout_marginLeft="10dp"/>
 
         <TextView
+            android:id="@+id/collection_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="6dp"
             android:layout_marginTop="30dp"
+            android:textColor="#ff999999"
             android:text="Collections"/>
 
         <ImageView
@@ -62,24 +65,24 @@
         android:id="@+id/choice_shots"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#ffdfdfdf"
+        android:background="@drawable/button_selector"
         android:text="Shots"
-        android:textSize="36sp"
+        android:textSize="42sp"
         android:textColor="#ffe23176"
         android:layout_weight="20"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="1px"
-        android:background="#ff999999"></LinearLayout>
+        android:background="#ff999999"/>
 
     <Button
         android:id="@+id/choice_player"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#ffdfdfdf"
+        android:background="@drawable/button_selector"
         android:text="Player"
-        android:textSize="36sp"
+        android:textSize="42sp"
         android:textColor="#ffe23176"
         android:layout_weight="20"/>
     </LinearLayout>

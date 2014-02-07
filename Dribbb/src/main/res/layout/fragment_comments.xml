@@ -12,7 +12,8 @@
         android:layout_below="@+id/comments_label"
         android:paddingTop="5dp"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"></ListView>
+        android:listSelector="@drawable/view_selector"
+        android:layout_height="match_parent"/>
 
     <TextView
         android:id="@+id/comments_label"
@@ -21,6 +22,7 @@
         android:text="Comments"
         android:textColor="#ffffffff"
         android:padding="7dp"
+        android:textSize="22sp"
         android:background="#ffe03e7d"/>
 
 </RelativeLayout>

@@ -16,7 +16,6 @@
         android:layout_height="match_parent"
         android:background="#ff383838"
         android:scaleType="centerCrop"
-        android:src="@drawable/ic_launcher"
         android:layout_below="@+id/hhhhh"/>
 
     <ProgressBar
@@ -28,6 +27,5 @@
         android:layout_centerHorizontal="true"
         android:padding="30dp"
         android:visibility="gone"/>
-
 
 </RelativeLayout>

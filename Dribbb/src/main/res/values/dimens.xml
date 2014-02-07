@@ -12,4 +12,10 @@
     <drawable name="tab_selected_focused">#ff000000</drawable>
     <drawable name="tab_unselected_focused">#22ffffff</drawable>
 
+    <drawable name="button_unpressed">#00000000</drawable>
+    <drawable name="button_pressed">#45000000</drawable>
+
+    <drawable name="view_unpressed">#00000000</drawable>
+    <drawable name="view_pressed">#22000000</drawable>
+
 </resources>

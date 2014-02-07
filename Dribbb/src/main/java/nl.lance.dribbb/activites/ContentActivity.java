@@ -56,7 +56,7 @@ public class ContentActivity extends FragmentActivity implements OnPageChangeLis
     mDrawerLayout.setDrawerListener(mDrawerToggle);
 
     getSupportFragmentManager().beginTransaction()
-            .replace(R.id.left_drawer, new Drawer(ContentActivity.this))
+            .replace(R.id.left_drawer, new Drawer())
             .commit();
 
   }
@@ -142,6 +142,7 @@ public class ContentActivity extends FragmentActivity implements OnPageChangeLis
   private void setActionBarStyle() {
     this.getActionBar().setTitle("dribbble");
     getActionBar().setBackgroundDrawable(this.getBaseContext().getResources().getDrawable(R.drawable.actionbar_back));
+    getActionBar().setIcon(R.drawable.ic_action);
     getActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
     int titleId = Resources.getSystem().getIdentifier("action_bar_title", "id", "android");
     TextView textView = (TextView) findViewById(titleId);
@@ -150,7 +151,6 @@ public class ContentActivity extends FragmentActivity implements OnPageChangeLis
     textView.setTextSize(32);
     getActionBar().setDisplayHomeAsUpEnabled(true);
     getActionBar().setHomeButtonEnabled(true);
-
   }
 
 }

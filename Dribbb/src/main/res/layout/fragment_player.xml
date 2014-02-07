@@ -25,15 +25,17 @@
                     android:id="@+id/player_avatar"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="28dp"
-                    android:src="@drawable/abc_ab_bottom_solid_dark_holo"/>
+                    android:padding="2dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="15dp"
+                    android:background="#ff454545"/>
 
                 <TextView
                     android:id="@+id/player_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="15dp"
                     android:text="Designer name"
                     android:textColor="#ffe23176"
                     android:textSize="24sp"/>
@@ -42,7 +44,7 @@
                     android:id="@+id/player_likes_count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginLeft="15dp"
                     android:text="Likes and likes received"
                     android:textColor="#fff4f4f4"
                     android:textSize="12sp"/>
@@ -52,7 +54,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginLeft="15dp"
                     android:text="Following and follower"
                     android:textColor="#ffaaaaaa"
                     android:textSize="12sp"/>
@@ -64,8 +66,9 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:background="#00000000"
-                android:layout_margin="20dp"
+                android:background="@drawable/button_selector"
+                android:layout_margin="10dp"
+                android:padding="10dp"
                 android:src="@drawable/collect"/>
         </RelativeLayout>
 
@@ -85,6 +88,9 @@
             android:layout_below="@+id/label"
             android:layoutAnimation="@anim/list_controller"
             android:verticalSpacing="7dp"
+            android:listSelector="@drawable/view_selector"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
             android:horizontalSpacing="7dp"
             android:numColumns="2"/>
 
@@ -155,8 +161,8 @@
                 android:text="Shots of player:"
                 android:layout_alignParentBottom="true"
                 android:textColor="#ffffffff"
-                android:layout_marginTop="8dp"
-                android:textSize="27sp"/>
+                android:layout_marginTop="10dp"
+                android:textSize="22sp"/>
 
         </FrameLayout>
 

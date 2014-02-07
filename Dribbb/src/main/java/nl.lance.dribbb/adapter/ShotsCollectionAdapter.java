@@ -1,6 +1,7 @@
 package nl.lance.dribbb.adapter;
 
 import android.app.Activity;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,8 +13,6 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.NetworkImageView;
 import com.android.volley.toolbox.Volley;
-
-import net.tsz.afinal.FinalDb;
 
 import java.util.List;
 
@@ -27,18 +26,16 @@ import nl.lance.dribbb.network.BitmapLruCache;
 public class ShotsCollectionAdapter extends BaseAdapter {
 
   private LayoutInflater mInflater;
-  private Activity mActivity;
+  private Typeface typeface;
   private List<Shots> mList;
   private ImageLoader mImageLoader;
-  private FinalDb db;
 
   public ShotsCollectionAdapter(Activity a, List<Shots> list) {
     mList = list;
-    mActivity = a;
+    typeface = Typeface.createFromAsset(a.getAssets(), "font/Roboto-Light.ttf");
     mInflater = LayoutInflater.from(a);
     RequestQueue requestQueue = Volley.newRequestQueue(a);
     mImageLoader = new ImageLoader(requestQueue, new BitmapLruCache());
-    db = FinalDb.create(a);
   }
 
   @Override
@@ -66,6 +63,7 @@ public class ShotsCollectionAdapter extends BaseAdapter {
       holder.shotTitle = (TextView)convertView.findViewById(R.id.collect_shot_title);
       holder.player = (TextView)convertView.findViewById(R.id.collect_shot_player);
       holder.delete = (ImageButton)convertView.findViewById(R.id.collect_shot_delete);
+      holder.shotDeleteLabel = (TextView)convertView.findViewById(R.id.shot_delete_label);
       convertView.setTag(holder);
     } else {
       holder = (Holder)convertView.getTag();
@@ -73,7 +71,9 @@ public class ShotsCollectionAdapter extends BaseAdapter {
 
     holder.shotImage.setImageUrl(mList.get(position).getImageUrl(), mImageLoader);
     holder.shotTitle.setText(mList.get(position).getTitle());
+    holder.shotTitle.setTypeface(typeface);
     holder.player.setText(mList.get(position).getName());
+    holder.shotDeleteLabel.setTypeface(typeface);
     return convertView;
   }
 
@@ -82,6 +82,6 @@ public class ShotsCollectionAdapter extends BaseAdapter {
     public TextView shotTitle;
     public TextView player;
     public ImageButton delete;
-    public TextView textView;
+    public TextView shotDeleteLabel;
   }
 }

@@ -18,7 +18,7 @@
         swipe:swipeFrontView="@+id/front"
         swipe:swipeMode="left"
         android:layoutAnimation="@anim/list_controller"
-        swipe:swipeOffsetLeft="200dp"
+        swipe:swipeOffsetLeft="240dp"
         swipe:swipeOpenOnLongPress="false" />
 
 </RelativeLayout>

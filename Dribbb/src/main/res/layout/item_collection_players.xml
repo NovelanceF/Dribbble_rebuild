@@ -8,19 +8,37 @@
         android:id="@+id/back"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:background="#ff383838"
-        android:tag="back" >
+        android:background="#ffe1e1e1"
+        android:tag="back">
 
-        <ImageButton
-            android:id="@+id/player_collect_delete"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+        <RelativeLayout
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_margin="10dp"
-            android:background="#00ffffff"
-            android:scaleType="centerInside"
-            android:src="@drawable/delete" />
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/player_collect_delete"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:scaleType="centerInside"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="10dp"
+                android:src="@drawable/delete"
+                android:alpha="0.65"/>
+
+            <TextView
+                android:id="@+id/player_delete_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tap to Delete"
+                android:layout_below="@id/player_collect_delete"
+                android:layout_centerHorizontal="true"
+                android:textColor="#ff999999"/>
+
+        </RelativeLayout>
     </RelativeLayout>
 
     <RelativeLayout

@@ -1,12 +1,15 @@
 package nl.lance.dribbb.shots.fragment;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
+import android.widget.AdapterView;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
@@ -23,6 +26,7 @@ import net.tsz.afinal.FinalDb;
 import java.util.List;
 
 import nl.lance.dribbb.R;
+import nl.lance.dribbb.activites.ShotsDetail;
 import nl.lance.dribbb.adapter.PlayersAdapter;
 import nl.lance.dribbb.models.Player;
 import nl.lance.dribbb.network.BitmapLruCache;
@@ -38,22 +42,15 @@ import nl.lance.dribbb.views.ScrollGridView;
 public class PlayerFragment extends Fragment implements ObservableScrollView.Callbacks, ObservableScrollView.ScrollViewListener, View.OnClickListener {
 
   private FrameLayout mStickyView;
-
   private View mPlaceholderView;
-
   private ImageLoader mImageLoader;
-
   private ShotsData data;
-
   private FooterState state = new FooterState();
-
   private PlayersAdapter adapter;
-
   private static int page = 1;
-
   private RelativeLayout progressView;
-
   private Bundle bundle;
+  private Typeface typeface;
 
   public PlayerFragment(Activity a) {
     data = new ShotsData(a);
@@ -67,6 +64,9 @@ public class PlayerFragment extends Fragment implements ObservableScrollView.Cal
             .inflate(R.layout.fragment_player, container, false);
 
     bundle = getActivity().getIntent().getExtras();
+    typeface = Typeface.createFromAsset(getActivity().getAssets(), "font/Roboto-Light.ttf");
+
+     getActivity().getActionBar().setTitle(" player");
 
     initPlayerInfo(rootView);
     initGridView(rootView);
@@ -95,6 +95,10 @@ public class PlayerFragment extends Fragment implements ObservableScrollView.Cal
     TextView name = (TextView) view.findViewById(R.id.player_name);
     TextView likes = (TextView) view.findViewById(R.id.player_likes_count);
     TextView follow = (TextView) view.findViewById(R.id.player_ff);
+    TextView label = (TextView) view.findViewById(R.id.shots_label);
+    name.setTypeface(typeface);
+    label.setTypeface(typeface);
+
     NetworkImageView avatar = (NetworkImageView) view.findViewById(R.id.player_avatar);
     progressView = (RelativeLayout) view.findViewById(R.id.progress_bar);
     ImageButton collector = (ImageButton) view.findViewById(R.id.player_collector);
@@ -115,6 +119,17 @@ public class PlayerFragment extends Fragment implements ObservableScrollView.Cal
     adapter = new PlayersAdapter(getActivity(), data.getList(), 0);
     shotsLoading(page);
     gridView.setAdapter(adapter);
+
+    gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+      @Override
+      public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Intent intent = new Intent(getActivity(), ShotsDetail.class);
+
+        intent.putExtras(initShotsBundle(position));
+        getActivity().startActivity(intent);
+        getActivity().overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+      }
+    });
   }
 
   @Override
@@ -170,6 +185,20 @@ public class PlayerFragment extends Fragment implements ObservableScrollView.Cal
       }
       break;
     }
+  }
+
+  private Bundle initShotsBundle(int position) {
+    Bundle bundle = new Bundle();
+
+    String tags[] = DribbbleAPI.tagBundleShots;
+
+    for (int i = 0; i < tags.length; i++) {
+      bundle.putString(tags[i], data.getList().get(position).get(tags[i]).toString());
+      if(i == 4) {
+        bundle.putString("player_"+tags[i], data.getList().get(position).get("player_"+tags[i]).toString());
+      }
+    }
+    return bundle;
   }
 
   private void playerCollect() {

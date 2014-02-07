@@ -1,6 +1,7 @@
 package nl.lance.dribbb.adapter;
 
 import android.app.Activity;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,11 +28,11 @@ public class PlayerCollectionAdapter extends BaseAdapter {
   private List<Player> mList;
   private LayoutInflater mInflater;
   private ImageLoader mImageLoader;
-  private Activity mActivity;
+  private Typeface typeface;
 
   public PlayerCollectionAdapter(Activity a, List<Player> list) {
     mList = list;
-    mActivity = a;
+    typeface = Typeface.createFromAsset(a.getAssets(), "font/Roboto-Light.ttf");
     RequestQueue requestQueue = Volley.newRequestQueue(a);
     mInflater = LayoutInflater.from(a);
     mImageLoader = new ImageLoader(requestQueue, new BitmapLruCache());
@@ -61,6 +62,7 @@ public class PlayerCollectionAdapter extends BaseAdapter {
       holder.playerName = (TextView)convertView.findViewById(R.id.player_collect_name);
       holder.playerUsername = (TextView)convertView.findViewById(R.id.player_collect_username);
       holder.button = (ImageButton)convertView.findViewById(R.id.player_collect_delete);
+      holder.deleteLabel = (TextView)convertView.findViewById(R.id.player_delete_label);
       convertView.setTag(holder);
     } else {
       holder = (Holder)convertView.getTag();
@@ -68,7 +70,10 @@ public class PlayerCollectionAdapter extends BaseAdapter {
 
     holder.playerAvatar.setImageUrl(mList.get(position).getAvatarUrl(), mImageLoader);
     holder.playerName.setText(mList.get(position).getName());
+    holder.playerName.setTypeface(typeface);
     holder.playerUsername.setText(mList.get(position).getUsername());
+    holder.playerUsername.setTypeface(typeface);
+    holder.deleteLabel.setTypeface(typeface);
     return convertView;
   }
 
@@ -76,6 +81,7 @@ public class PlayerCollectionAdapter extends BaseAdapter {
     public NetworkImageView playerAvatar;
     public TextView playerName;
     public TextView playerUsername;
+    public TextView deleteLabel;
     public ImageButton button;
   }
 }

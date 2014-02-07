@@ -24,6 +24,7 @@
         android:verticalSpacing="6dp"
         android:horizontalSpacing="6dp"
         android:background="#ff212121"
+        android:listSelector="@drawable/view_selector"
         android:numColumns="3"/>
 
 </RelativeLayout>

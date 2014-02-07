@@ -2,6 +2,7 @@ package nl.lance.dribbb.shots.fragment;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.Display;
@@ -9,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
@@ -22,6 +24,7 @@ import java.util.List;
 
 import nl.lance.dribbb.R;
 import nl.lance.dribbb.activites.PlayerActivity;
+import nl.lance.dribbb.activites.ShotsDetail;
 import nl.lance.dribbb.adapter.DetailAdapter;
 import nl.lance.dribbb.models.Shots;
 import nl.lance.dribbb.network.DribbbleAPI;
@@ -35,6 +38,7 @@ public class ShotDetailFragment extends Fragment implements View.OnClickListener
 
   private ShotsData data;
   private Bundle bundle;
+  private Typeface typeface;
 
   public ShotDetailFragment(Activity a) {
     data = new ShotsData(a);
@@ -45,6 +49,7 @@ public class ShotDetailFragment extends Fragment implements View.OnClickListener
     View rootView = inflater.inflate(R.layout.fragment_shots_detail, container, false);
     ImageViewNext.setMaximumNumberOfThreads(200);
     bundle = getActivity().getIntent().getExtras();
+    typeface = Typeface.createFromAsset(getActivity().getAssets(), "font/Roboto-Light.ttf");
     initShotDetail(rootView);
     initMoreShots(rootView);
     return rootView;
@@ -57,6 +62,27 @@ public class ShotDetailFragment extends Fragment implements View.OnClickListener
     shotsLoading(1, adapter, relativeLayout);
     gridView.setAdapter(adapter);
     gridView.setEmptyView(relativeLayout);
+
+    gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+      @Override
+      public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Intent intent = new Intent(getActivity(), ShotsDetail.class);
+        Bundle bundle = new Bundle();
+
+        String tags[] = DribbbleAPI.tagBundleShots;
+
+        for (int i = 0; i < tags.length; i++) {
+          bundle.putString(tags[i], data.getList().get(position).get(tags[i]).toString());
+          if(i == 4) {
+            bundle.putString("player_"+tags[i], data.getList().get(position).get("player_"+tags[i]).toString());
+          }
+        }
+
+        intent.putExtras(bundle);
+        getActivity().startActivity(intent);
+        getActivity().overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+      }
+    });
   }
 
   private void initShotDetail(View view) {
@@ -68,11 +94,14 @@ public class ShotDetailFragment extends Fragment implements View.OnClickListener
     setImageParmas(detailimage);
 
     TextView title = (TextView) view.findViewById(R.id.detail_title);
+    title.setTypeface(typeface);
     TextView player = (TextView) view.findViewById(R.id.detail_player);
     player.setOnClickListener(this);
     TextView views = (TextView) view.findViewById(R.id.detail_views);
     TextView likes = (TextView) view.findViewById(R.id.detail_likes);
     TextView comments = (TextView) view.findViewById(R.id.detail_commentss);
+    TextView emptyText = (TextView) view.findViewById(R.id.empty_text);
+    emptyText.setTypeface(typeface);
 
     ImageButton shotCollect = (ImageButton) view.findViewById(R.id.shot_collect);
     shotCollect.setOnClickListener(this);
