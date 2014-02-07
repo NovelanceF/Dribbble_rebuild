@@ -38,4 +38,8 @@
         <item name="android:windowIsTranslucent">true</item>
     </style>
 
+    <style name="CollectionTheme" parent="android:Theme.Holo.Light.NoActionBar">
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
 </resources>

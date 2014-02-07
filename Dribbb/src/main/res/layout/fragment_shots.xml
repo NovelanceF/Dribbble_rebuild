@@ -5,6 +5,13 @@
     android:background="#ff212121"
     android:orientation="vertical" >
 
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressBar"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"/>
+
     <GridView
         android:paddingLeft="4dp"
         android:paddingRight="4dp"
@@ -16,6 +23,7 @@
         android:scrollbars="vertical"
         android:verticalSpacing="6dp"
         android:horizontalSpacing="6dp"
+        android:background="#ff212121"
         android:numColumns="3"/>
 
 </RelativeLayout>

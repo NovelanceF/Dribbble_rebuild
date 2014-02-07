@@ -15,6 +15,7 @@ import net.tsz.afinal.FinalDb;
 import java.util.List;
 
 import nl.lance.dribbb.R;
+import nl.lance.dribbb.activites.LoadingActivity;
 import nl.lance.dribbb.activites.ShotsDetail;
 import nl.lance.dribbb.adapter.ShotsCollectionAdapter;
 import nl.lance.dribbb.models.Shots;
@@ -28,7 +29,7 @@ public class ShotsCollection extends Fragment {
   public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
     final View rootView = inflater.inflate(R.layout.fragment_shots_collect, container, false);
 
-    FinalDb db = FinalDb.create(getActivity());
+    final FinalDb db = FinalDb.create(getActivity());
     final List<Shots> list = db.findAll(Shots.class);
 
     SwipeListView listView = (SwipeListView)rootView.findViewById(R.id.shots_collected_listview);
@@ -56,6 +57,15 @@ public class ShotsCollection extends Fragment {
 
       @Override
       public void onClickBackView(int position) {
+        Shots shots = new Shots();
+        shots.setId(list.get(position).getId());
+        db.delete(shots);
+
+        Intent intent = new Intent(getActivity(), LoadingActivity.class);
+        intent.putExtra("ct", 2);
+        getActivity().startActivity(intent);
+        getActivity().overridePendingTransition(R.anim.abc_fade_in, R.anim.abc_fade_out);
+        getActivity().finish();
       }
 
       @Override

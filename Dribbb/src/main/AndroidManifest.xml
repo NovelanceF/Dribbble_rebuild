@@ -63,7 +63,13 @@
         </activity>
         <activity
             android:name="nl.lance.dribbb.activites.DActivity"
-            android:label="@string/title_activity_d" >
+            android:label="@string/title_activity_d"
+            android:theme="@style/CollectionTheme">
+        </activity>
+        <activity
+            android:name="nl.lance.dribbb.activites.LoadingActivity"
+            android:label="Loading"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
         </activity>
     </application>
 

@@ -107,7 +107,7 @@ public class ShotsFragment extends Fragment {
 
   private void shotsLoading(int page) {
     footerState.setState(FooterState.State.Loading);
-    data.getShotsRefresh(currentUrl + page, adapter, footerState);
+    data.getShotsRefresh(currentUrl + page, adapter, footerState, null);
   }
 
 }

@@ -1,6 +1,10 @@
 package nl.lance.dribbb.network;
 
 import android.app.Activity;
+import android.view.View;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -56,7 +60,7 @@ public class ShotsData {
     return commentsPages;
   }
 
-  public void getShotsRefresh(final String url, final ContentShotsAdapter adapter, final FooterState f) {
+  public void getShotsRefresh(final String url, final ContentShotsAdapter adapter, final FooterState f, final RelativeLayout r) {
     JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,
             new Response.Listener<JSONObject>() {
 
@@ -66,15 +70,20 @@ public class ShotsData {
                   f.setState(FooterState.State.Idle);
                   initShotsList(arg0, f);
                   adapter.notifyDataSetChanged();
+                  if(r != null && adapter.getCount() == getSize()) {
+                    noMoreShots(r);
+                  }
                 } catch (JSONException e) {
                   e.printStackTrace();
+                  if(r != null) {
+                    noMoreShots(r);
+                  }
                 }
               }
             }, new Response.ErrorListener() {
 
       @Override
       public void onErrorResponse(VolleyError arg0) {
-
       }
     }
     );
@@ -118,8 +127,8 @@ public class ShotsData {
       Map<String, Object> map = new HashMap<String, Object>();
 
       JSONObject shotsObject = array.getJSONObject(i);
-      for(int j = 0; j < tagsShots.length; j++) {
-        map.put(tagsShots[j], shotsObject.getString(tagsShots[j]));
+      for (String tagsShot : tagsShots) {
+        map.put(tagsShot, shotsObject.getString(tagsShot));
       }
 
       JSONObject playerObject = array.getJSONObject(i).getJSONObject("player");
@@ -163,5 +172,12 @@ public class ShotsData {
         break;
       }
     }
+  }
+
+  private void noMoreShots(RelativeLayout r) {
+    TextView t = (TextView)r.getChildAt(1);
+    ProgressBar p = (ProgressBar)r.getChildAt(0);
+    t.setText("No more shots");
+    p.setVisibility(View.GONE);
   }
 }

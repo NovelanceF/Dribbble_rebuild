@@ -15,6 +15,7 @@ import net.tsz.afinal.FinalDb;
 import java.util.List;
 
 import nl.lance.dribbb.R;
+import nl.lance.dribbb.activites.LoadingActivity;
 import nl.lance.dribbb.activites.PlayerActivity;
 import nl.lance.dribbb.adapter.PlayerCollectionAdapter;
 import nl.lance.dribbb.models.Player;
@@ -28,11 +29,11 @@ public class PlayerCollection extends Fragment{
   public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
     ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_player_collect, container, false);
 
-    SwipeListView listView = (SwipeListView)rootView.findViewById(R.id.shots_collected_listview);
+    SwipeListView listView = (SwipeListView)rootView.findViewById(R.id.player_collected_listview);
     PlayerCollectionAdapter adapter = new PlayerCollectionAdapter(getActivity(), getData());
     listView.setAdapter(adapter);
 
-    FinalDb db = FinalDb.create(getActivity());
+    final FinalDb db = FinalDb.create(getActivity());
     final List<Player> list = db.findAll(Player.class);
 
     listView.setSwipeListViewListener(new BaseSwipeListViewListener(){
@@ -56,6 +57,15 @@ public class PlayerCollection extends Fragment{
 
       @Override
       public void onClickBackView(int position) {
+        Player player = new Player();
+        player.setId(list.get(position).getId());
+        db.delete(player);
+
+        Intent intent = new Intent(getActivity(), LoadingActivity.class);
+        intent.putExtra("ct", 1);
+        getActivity().startActivity(intent);
+        getActivity().overridePendingTransition(R.anim.abc_fade_in, R.anim.abc_fade_out);
+        getActivity().finish();
       }
 
       @Override

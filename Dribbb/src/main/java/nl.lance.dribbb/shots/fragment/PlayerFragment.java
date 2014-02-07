@@ -137,7 +137,7 @@ public class PlayerFragment extends Fragment implements ObservableScrollView.Cal
     View view = (View) scrollView.getChildAt(scrollView.getChildCount() - 1);
     int diff = (view.getBottom() - (scrollView.getHeight() + scrollView.getScrollY()));
     if (diff == 0 && state.getState() != FooterState.State.Loading && adapter.getCount() != 0) {
-      shotsLoading(++page);
+    shotsLoading(++page);
       if (adapter.getCount() == data.getSize()) {
         progressViewEnd();
       }
@@ -153,7 +153,7 @@ public class PlayerFragment extends Fragment implements ObservableScrollView.Cal
   private void shotsLoading(int page) {
     state.setState(FooterState.State.Loading);
     data.getShotsRefresh(DribbbleAPI.getPlayersShotUrl(getActivity().getIntent().getExtras().getString("username")) + page,
-            adapter, state);
+            adapter, state, progressView);
   }
 
   @Override

@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.GridView;
 import android.widget.ImageButton;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -52,8 +53,10 @@ public class ShotDetailFragment extends Fragment implements View.OnClickListener
   private void initMoreShots(View view) {
     GridView gridView = (GridView) view.findViewById(R.id.more_shots);
     DetailAdapter adapter = new DetailAdapter(getActivity(), data.getList(), 2);
-    shotsLoading(1, adapter);
+    RelativeLayout relativeLayout = (RelativeLayout)view.findViewById(R.id.gridview_empty);
+    shotsLoading(1, adapter, relativeLayout);
     gridView.setAdapter(adapter);
+    gridView.setEmptyView(relativeLayout);
   }
 
   private void initShotDetail(View view) {
@@ -93,8 +96,9 @@ public class ShotDetailFragment extends Fragment implements View.OnClickListener
     v.setLayoutParams(params);
   }
 
-  private void shotsLoading(int page, DetailAdapter adapter) {
-    data.getShotsRefresh(DribbbleAPI.getuserLikesUel(getActivity().getIntent().getExtras().getString("username")) + page, adapter, new FooterState());
+  private void shotsLoading(int page, DetailAdapter adapter, RelativeLayout relativeLayout) {
+    String Url = DribbbleAPI.getuserLikesUel(getActivity().getIntent().getExtras().getString("username")) + page;
+    data.getShotsRefresh(Url, adapter, new FooterState(), relativeLayout);
   }
 
   @Override

@@ -147,8 +147,32 @@
         android:horizontalSpacing="6dp"
         android:verticalSpacing="6dp"
         android:layoutAnimation="@anim/list_controller"
-        android:numColumns="3"
-        ></GridView>
+        android:numColumns="3"/>
+
+    <RelativeLayout
+        android:id="@+id/gridview_empty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/player"
+        android:layout_above="@+id/buttons"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/progressBar"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/empty_text"
+            style="?android:attr/progressBarStyleSmall"
+            android:padding="10dp"/>
+
+        <TextView
+            android:id="@+id/empty_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Loading shots, please wait."
+            android:layout_centerInParent="true"/>
+        </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="wrap_content"
