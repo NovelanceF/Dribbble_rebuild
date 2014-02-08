@@ -22,6 +22,9 @@ import net.tsz.afinal.FinalDb;
 
 import java.util.List;
 
+import cn.sharesdk.framework.ShareSDK;
+import cn.sharesdk.sina.weibo.SinaWeibo;
+import cn.sharesdk.twitter.Twitter;
 import nl.lance.dribbb.R;
 import nl.lance.dribbb.activites.PlayerActivity;
 import nl.lance.dribbb.activites.ShotsDetail;
@@ -30,6 +33,7 @@ import nl.lance.dribbb.models.Shots;
 import nl.lance.dribbb.network.DribbbleAPI;
 import nl.lance.dribbb.network.ShotsData;
 import nl.lance.dribbb.views.FooterState;
+import nl.lance.dribbb.views.ShareDialog;
 
 /**
  * Created by Novelance on 1/26/14.
@@ -48,7 +52,11 @@ public class ShotDetailFragment extends Fragment implements View.OnClickListener
   public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
     View rootView = inflater.inflate(R.layout.fragment_shots_detail, container, false);
     ImageViewNext.setMaximumNumberOfThreads(200);
+    ShareSDK.initSDK(getActivity());
+
     bundle = getActivity().getIntent().getExtras();
+    ShareDialog.storeBitmap(bundle.getString("image_url"), getActivity());
+
     typeface = Typeface.createFromAsset(getActivity().getAssets(), "font/Roboto-Light.ttf");
     initShotDetail(rootView);
     initMoreShots(rootView);
@@ -104,7 +112,11 @@ public class ShotDetailFragment extends Fragment implements View.OnClickListener
     emptyText.setTypeface(typeface);
 
     ImageButton shotCollect = (ImageButton) view.findViewById(R.id.shot_collect);
+    ImageButton weibo = (ImageButton) view.findViewById(R.id.weibo);
+    ImageButton twitter = (ImageButton) view.findViewById(R.id.twitter);
     shotCollect.setOnClickListener(this);
+    weibo.setOnClickListener(this);
+    twitter.setOnClickListener(this);
 
     playerAvatar.setUrl(bundle.getString("avatar_url"));
     detailimage.setUrl(bundle.getString("image_url"));
@@ -142,6 +154,13 @@ public class ShotDetailFragment extends Fragment implements View.OnClickListener
         collectShot();
       }
       break;
+      case  R.id.weibo: {
+        ShareDialog.initDialog(true, SinaWeibo.NAME, getActivity());
+      }
+      break;
+      case R.id.twitter: {
+        ShareDialog.initDialog(true, Twitter.NAME, getActivity());
+      }
     }
   }
 

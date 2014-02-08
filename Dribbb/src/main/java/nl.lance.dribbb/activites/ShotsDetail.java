@@ -8,6 +8,7 @@ import android.view.WindowManager;
 
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 
+import cn.sharesdk.framework.ShareSDK;
 import me.imid.swipebacklayout.lib.SwipeBackLayout;
 import me.imid.swipebacklayout.lib.app.SwipeBackActivity;
 import nl.lance.dribbb.R;
@@ -23,6 +24,8 @@ public class ShotsDetail extends SwipeBackActivity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_shots_detail);
+
+    ShareSDK.initSDK(this);
 
     mSwipeBackLayout = getSwipeBackLayout();
     mSwipeBackLayout.setEdgeTrackingEnabled(SwipeBackLayout.EDGE_LEFT);

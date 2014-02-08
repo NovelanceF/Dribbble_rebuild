@@ -70,7 +70,10 @@
     </content>
     <orderEntry type="jdk" jdkName="Android API 19 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" exported="" name="ShareSDK-Core-2.3.1" level="project" />
+    <orderEntry type="library" exported="" name="ShareSDK-SinaWeibo-2.3.1" level="project" />
     <orderEntry type="library" exported="" name="afinal_0.5_bin" level="project" />
+    <orderEntry type="library" exported="" name="ShareSDK-Twitter-2.3.1" level="project" />
     <orderEntry type="library" exported="" name="okhttp-1.2.1-jar-with-dependencies" level="project" />
     <orderEntry type="library" exported="" name="nineoldandroids-2.4.0" level="project" />
     <orderEntry type="library" exported="" name="support-v4-19.0.1" level="project" />

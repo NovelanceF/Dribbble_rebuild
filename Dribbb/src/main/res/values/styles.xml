@@ -19,7 +19,7 @@
         <!-- tab indicator -->
     </style>
 
-    <style name="DetailActivityTheme" parent="android:Theme.Holo.NoActionBar">
+    <style name="DetailActivityTheme" parent="android:Theme.Holo.Light.NoActionBar">
         <item name="android:windowIsTranslucent">true</item>
     </style>
     
