@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.graphics.Bitmap.CompressFormat;
 import android.graphics.Bitmap.Config;
 import android.graphics.BitmapFactory;
+import android.graphics.Typeface;
 import android.os.Environment;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -40,6 +41,7 @@ public class ShareDialog {
     View shareDialog = a.getLayoutInflater().inflate(R.layout.share_dialog, null);
     final EditText text = (EditText)shareDialog.findViewById(R.id.share);
     TextView label = (TextView)shareDialog.findViewById(R.id.label);
+    label.setTypeface(Typeface.createFromAsset(a.getAssets(), "font/Roboto-Light.ttf"));
     ImageView imageView = (ImageView)shareDialog.findViewById(R.id.labelicon);
     ImageView preview = (ImageView)shareDialog.findViewById(R.id.share_preview);
     preview.setImageBitmap(getBitmap());
@@ -51,7 +53,7 @@ public class ShareDialog {
       imageView.setBackgroundResource(R.drawable.twitter2);
     } else if (platForm == SinaWeibo.NAME) {
       label.setText(platForm);
-      label.setTextColor(0xff3b5999);
+      label.setTextColor(0xffe23176);
       imageView.setBackgroundResource(R.drawable.sinaweibo);
     }
 

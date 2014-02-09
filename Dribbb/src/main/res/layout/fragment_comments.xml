@@ -10,7 +10,6 @@
         android:dividerHeight="1px"
         android:divider="#ffbbbbbb"
         android:layout_below="@+id/comments_label"
-        android:paddingTop="5dp"
         android:layout_width="wrap_content"
         android:listSelector="@drawable/view_selector"
         android:layout_height="match_parent"/>
@@ -18,10 +17,12 @@
     <TextView
         android:id="@+id/comments_label"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:text="Comments"
         android:textColor="#ffffffff"
-        android:padding="7dp"
+        android:paddingTop="13dp"
+        android:paddingLeft="7dp"
+        android:paddingRight="7dp"
         android:textSize="22sp"
         android:background="#ffe03e7d"/>
 

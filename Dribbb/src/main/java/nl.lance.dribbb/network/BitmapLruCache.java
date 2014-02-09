@@ -8,7 +8,7 @@ import com.android.volley.toolbox.ImageLoader;
 public class BitmapLruCache extends LruCache<String, Bitmap> implements ImageLoader.ImageCache {
 
   public BitmapLruCache() {
-    super(15*1024*1024);
+    super(5*1024*1024);
   }
   
   @Override
