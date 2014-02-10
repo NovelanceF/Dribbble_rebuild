@@ -12,6 +12,7 @@
         android:padding="12dp"
         android:dividerHeight="1px"
         android:divider="#00ffffff"
+        android:listSelector="@drawable/view_selector"
         android:layout_marginTop="55dp"/>
 
 </LinearLayout>
