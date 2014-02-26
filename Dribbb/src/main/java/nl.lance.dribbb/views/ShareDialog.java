@@ -102,8 +102,8 @@ public class ShareDialog {
       oks.setImagePath("/sdcard/temp.jpg");
       oks.setUrl("http://www.sharesdk.cn");
       oks.setSiteUrl("http://sharesdk.cn");
-      oks.setVenueName("Southeast in China");
-      oks.setVenueDescription("This is a beautiful place!");
+      //oks.setVenueName("Southeast in China");
+      //oks.setVenueDescription("This is a beautiful place!");
       // oks.setLatitude(23.122619f);
       // oks.setLongitude(113.372338f);
       oks.setSilent(silent);

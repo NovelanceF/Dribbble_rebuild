@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module external.linked.project.path="$MODULE_DIR$" external.root.project.path="$MODULE_DIR$/.." external.system.id="GRADLE" external.system.module.group="DribbbleProject" external.system.module.version="unspecified" type="JAVA_MODULE" version="4">
   <component name="FacetManager">
+    <facet type="android-gradle" name="Android-Gradle">
+      <configuration>
+        <option name="GRADLE_PROJECT_PATH" value=":Dribbb" />
+      </configuration>
+    </facet>
     <facet type="android" name="Android">
       <configuration>
         <option name="SELECTED_BUILD_VARIANT" value="debug" />
@@ -15,11 +20,6 @@
         <option name="ASSETS_FOLDER_RELATIVE_PATH" value="/src/main/assets" />
       </configuration>
     </facet>
-    <facet type="android-gradle" name="Android-Gradle">
-      <configuration>
-        <option name="GRADLE_PROJECT_PATH" value=":Dribbb" />
-      </configuration>
-    </facet>
   </component>
   <component name="NewModuleRootManager" inherit-compiler-output="false">
     <output url="file://$MODULE_DIR$/build/classes/debug" />
@@ -30,10 +30,10 @@
       <sourceFolder url="file://$MODULE_DIR$/build/source/buildConfig/debug" isTestSource="false" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/source/rs/debug" isTestSource="false" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/res/rs/debug" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/build/source/r/test/debug" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/source/aidl/test/debug" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/source/buildConfig/test/debug" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/source/rs/test/debug" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/source/r/test/debug" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/source/aidl/test/debug" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/source/buildConfig/test/debug" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/source/rs/test/debug" isTestSource="true" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/res/rs/test/debug" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/debug/aidl" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/debug/assets" isTestSource="false" />
@@ -74,13 +74,13 @@
     <orderEntry type="library" exported="" name="ShareSDK-Core-2.3.1" level="project" />
     <orderEntry type="library" exported="" name="ShareSDK-SinaWeibo-2.3.1" level="project" />
     <orderEntry type="library" exported="" name="afinal_0.5_bin" level="project" />
+    <orderEntry type="library" exported="" name="appcompat-v7-19.0.1" level="project" />
     <orderEntry type="library" exported="" name="ShareSDK-Twitter-2.3.1" level="project" />
     <orderEntry type="library" exported="" name="okhttp-1.2.1-jar-with-dependencies" level="project" />
     <orderEntry type="library" exported="" name="nineoldandroids-2.4.0" level="project" />
     <orderEntry type="library" exported="" name="support-v4-19.0.1" level="project" />
     <orderEntry type="library" exported="" name="volley" level="project" />
     <orderEntry type="library" exported="" name="disklrucache-2.0.2" level="project" />
-    <orderEntry type="library" exported="" name="ComAndroidSupportAppcompatV71901.aar" level="project" />
   </component>
 </module>
 
