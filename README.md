@@ -44,4 +44,5 @@ A Dribbble client for android
 <img src="http://farm8.staticflickr.com/7355/12792702765_ba09e7dc97.jpg"/>
 <br/>
 
-<h4>app还在不断更新当中，当前完成度75%左右。
+<h4>app还在不断更新当中，当前完成度75%左右。</h4>
+<h5>eclipse 打包版本可见<a href="http://www.eoeandroid.com/thread-323068-1-1.html">eoe论坛</href>
