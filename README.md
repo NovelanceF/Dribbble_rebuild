@@ -1,7 +1,7 @@
-Dribbble_rebuild
+A Dribbble client for android
 ================
 
-<h3> A Dribbble client for android. </h3>
+
 <br />
 <hr/>
 
