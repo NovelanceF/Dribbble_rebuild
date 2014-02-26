@@ -15,10 +15,10 @@ import nl.lance.dribbb.R;
 import nl.lance.dribbb.shots.fragment.CommentsFragment;
 import nl.lance.dribbb.shots.fragment.ShotDetailFragment;
 
-public class ShotsDetail extends SwipeBackActivity {
+public class ShotsDetail extends SwipeBackActivity implements ShotDetailFragment.DrawerListener{
 
   private SwipeBackLayout mSwipeBackLayout;
-  private SlidingMenu sm;
+  public SlidingMenu sm;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +66,6 @@ public class ShotsDetail extends SwipeBackActivity {
     });
   }
 
-
   @Override
   public boolean onCreateOptionsMenu(Menu menu) {
 
@@ -83,4 +82,8 @@ public class ShotsDetail extends SwipeBackActivity {
     return super.onOptionsItemSelected(item);
   }
 
+  @Override
+  public void onIconSelected() {
+    sm.toggle();
+  }
 }

@@ -13,6 +13,7 @@ import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -43,6 +44,10 @@ public class ShotDetailFragment extends Fragment implements View.OnClickListener
   private ShotsData data;
   private Bundle bundle;
   private Typeface typeface;
+  public interface DrawerListener {
+    public void onIconSelected();
+  }
+  DrawerListener mCallback;
 
   public ShotDetailFragment(Activity a) {
     data = new ShotsData(a);
@@ -61,6 +66,18 @@ public class ShotDetailFragment extends Fragment implements View.OnClickListener
     initShotDetail(rootView);
     initMoreShots(rootView);
     return rootView;
+  }
+
+  @Override
+  public void onAttach(Activity activity) {
+    super.onAttach(activity);
+
+    try {
+      mCallback = (DrawerListener) activity;
+    } catch (ClassCastException e) {
+      throw new ClassCastException(activity.toString()
+              + " must implement OnHeadlineSelectedListener");
+    }
   }
 
   private void initMoreShots(View view) {
@@ -110,6 +127,9 @@ public class ShotDetailFragment extends Fragment implements View.OnClickListener
     TextView comments = (TextView) view.findViewById(R.id.detail_commentss);
     TextView emptyText = (TextView) view.findViewById(R.id.empty_text);
     emptyText.setTypeface(typeface);
+    ImageView navBack = (ImageView) view.findViewById(R.id.nav_back);
+    TextView toDetail = (TextView) view.findViewById(R.id.to_player_detail);
+    ImageView commectsDrawer = (ImageView) view.findViewById(R.id.comments_drawer);
 
     ImageButton shotCollect = (ImageButton) view.findViewById(R.id.shot_collect);
     ImageButton weibo = (ImageButton) view.findViewById(R.id.weibo);
@@ -117,6 +137,9 @@ public class ShotDetailFragment extends Fragment implements View.OnClickListener
     shotCollect.setOnClickListener(this);
     weibo.setOnClickListener(this);
     twitter.setOnClickListener(this);
+    navBack.setOnClickListener(this);
+    toDetail.setOnClickListener(this);
+    commectsDrawer.setOnClickListener(this);
 
     playerAvatar.setUrl(bundle.getString("avatar_url"));
     detailimage.setUrl(bundle.getString("image_url"));
@@ -145,7 +168,7 @@ public class ShotDetailFragment extends Fragment implements View.OnClickListener
   @Override
   public void onClick(View v) {
     switch (v.getId()) {
-      case R.id.detail_avatar:
+      case R.id.to_player_detail:
       case R.id.detail_player: {
         toPlayerPage();
       }
@@ -160,6 +183,16 @@ public class ShotDetailFragment extends Fragment implements View.OnClickListener
       break;
       case R.id.twitter: {
         ShareDialog.initDialog(true, Twitter.NAME, getActivity());
+      }
+      break;
+      case  R.id.detail_avatar:
+      case R.id.nav_back: {
+        getActivity().finish();
+        getActivity().overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+      }
+      break;
+      case R.id.comments_drawer: {
+        mCallback.onIconSelected();
       }
     }
   }
