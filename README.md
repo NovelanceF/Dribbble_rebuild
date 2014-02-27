@@ -1,6 +1,8 @@
 A Dribbble client for android
 ================
 
+<a href="https://github.com/NovelanceF/Dribbble_rebuild/blob/master/Dribbb/build/apk/Dribbb-debug-unaligned.apk?raw=true"> APK下载</href>
+
 
 <br />
 <hr/>
@@ -45,4 +47,4 @@ A Dribbble client for android
 <br/>
 
 <h4>app还在不断更新当中，当前完成度75%左右。</h4>
-<h5>eclipse 打包版本可见<a href="http://www.eoeandroid.com/thread-323068-1-1.html">eoe论坛</href>
+<h5>eclipse 打包版本可见<a href="http://www.eoeandroid.com/thread-323068-1-1.html">eoe论坛</href><br/>
