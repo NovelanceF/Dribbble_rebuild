@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="ShareSDK-SinaWeibo-2.3.1">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/lib/ShareSDK-SinaWeibo-2.3.1.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
